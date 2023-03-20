@@ -5,3 +5,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+//.snackbar-success {
+//  background-color: #22c55e !important;
+//}
+//.snackbar-warning {
+//  background-color: #eab308 !important;
+//}
+//.snackbar-error {
+//  background-color: #ef4444;
+//}
+////::ng-deep .snackbar-success{
+////  background-color:rgb(72, 236, 39);
+////  color: rgb(82, 82, 82);
+////}
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #ff4081;
+  --mdc-snackbar-container-color: #22c55e;
+  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  --mdc-snackbar-supporting-text-font: Roboto, sans-serif;
+  --mdc-snackbar-supporting-text-line-height: 20px;
+  --mdc-snackbar-supporting-text-size: 14px;
+  --mdc-snackbar-supporting-text-weight: 400;
+}
