@@ -6,19 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @tailwind components;
 @tailwind utilities;
 
-//.snackbar-success {
-//  background-color: #22c55e !important;
-//}
-//.snackbar-warning {
-//  background-color: #eab308 !important;
-//}
-//.snackbar-error {
-//  background-color: #ef4444;
-//}
-////::ng-deep .snackbar-success{
-////  background-color:rgb(72, 236, 39);
-////  color: rgb(82, 82, 82);
-////}
+
 .mat-mdc-snack-bar-container {
   --mat-mdc-snack-bar-button-color: #ff4081;
   --mdc-snackbar-container-color: #22c55e;
