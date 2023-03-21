@@ -1,20 +1,20 @@
-import {Component, Injector, OnInit} from "@angular/core";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {take} from "rxjs";
+import { Component, Injector, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { take } from 'rxjs';
 import {
-  MatSnackBar, MatSnackBarHorizontalPosition,
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
-} from "@angular/material/snack-bar";
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-base',
   template: '',
-  styles: []
+  styles: [],
 })
 export class BaseComponent implements OnInit {
-  public dialogService: MatDialog
-  public snackbarService: MatSnackBar
-
+  public dialogService: MatDialog;
+  public snackbarService: MatSnackBar;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -24,23 +24,30 @@ export class BaseComponent implements OnInit {
     this.snackbarService = injector.get(MatSnackBar);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   showDialog(component?: any, option: MatDialogConfig = {}, callback?: any) {
     const ref = this.dialogService.open(component, {
       width: '30vw',
       ...option,
     });
-    ref.afterClosed().pipe(take(1)).subscribe(value => callback && callback(value));
+    ref
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe((value) => callback && callback(value));
   }
 
   showSnackbar(messages: string, type?: string) {
     this.snackbarService.open(messages, 'done', {
-      panelClass: ["snackbar-success"],
+      panelClass:
+        type === 'success'
+          ? 'bg-lime-500'
+          : type === 'warning'
+          ? 'bg-yellow-500'
+          : 'bg-red-500',
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       // duration: 5000
-    })
+    });
   }
 }
