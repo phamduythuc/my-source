@@ -1,0 +1,30 @@
+.mat-button,
+.mat-flat-button,
+.mat-raised-button,
+.mat-stroked-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  line-height: 1 !important;
+
+  .mat-button-wrapper {
+    position: relative;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 2;
+  }
+  .mat-button-focus-overlay,
+  .mat-button-riple {
+    z-index: 1;
+  }
+  &.fuse-mat-button-large {
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+  }
+}

@@ -1,15 +1,16 @@
+import { TestComponentComponent } from './layouts/test-component/test-component.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import  {SignInComponent} from "./modules/auth/sign-in/sign-in.component";
+import { SignInComponent } from './modules/auth/sign-in/sign-in.component';
 
 const routes: Routes = [
-  {path: '', component: SignInComponent},
-  // { path: 'loading', loadChildren: () => import('./fuse/loading/loading.module').then(m => m.LoadingModule) },
-  { path: 'loading', loadChildren: () => import('./fuse/components/loading/loading.module').then(m => m.LoadingModule) }
+
+  { path: '', component: SignInComponent },
+  { path: 'second', component: TestComponentComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

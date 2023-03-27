@@ -1,1 +1,40 @@
-<p>sign-in works!</p>
+<div class="w-[100vw] h-[100vh] flex justify-center">
+  <div class="p-12 my-8 w-2/6 h-auto bg-stone-100 rounded-3xl shadow-lg shadow-gray-700">
+    <div class="w-full flex flex-col ">
+      <div class="font-semibold text-4xl">Sign in</div>
+      <form class="w-full mt-5 flex flex-col">
+        <div class="relative w-full">
+          <mat-label class="mb-2 md font-medium required">Email</mat-label>
+          <mat-form-field appearance="outline" class="w-full mb-3">
+            <input matInput class="border border-slate-100 rounded-md py-5" placeholder="Email">
+            <mat-error *ngIf="false">
+              field required
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+        <mat-label class="mb-2 md font-medium">Password</mat-label>
+        <mat-form-field appearance="outline" class="w-full">
+          <input matInput class="" [type]="hide ? 'password' : 'text'" placeholder="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+            <mat-error *ngIf="false">
+              field required
+            </mat-error>
+        </mat-form-field>
+      <div class="flex items-center justify-between mb-8">
+        <mat-checkbox color="primary">Remember me</mat-checkbox>
+        <a class="text-blue-400" routerLink="/">Forgot password?</a>
+      </div>
+
+        <button mat-flat-button class="fuse-mat-button-large" color="primary">Login</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
