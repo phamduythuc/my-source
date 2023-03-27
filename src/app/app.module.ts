@@ -6,16 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInModule } from './modules/auth/sign-in/sign-in.module';
 import { TestComponentComponent } from './layouts/test-component/test-component.component';
-import {
-  MatDialogActions,
-  MatDialogContent,
-  MatDialogModule,
-} from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MaterialModule } from './material/material.module';
 
+import { MaterialModule } from './material/material.module';
+import {LoadingModule} from "./fuse/components/loading/loading.module";
 @NgModule({
   declarations: [AppComponent, TestComponentComponent],
   imports: [
@@ -25,6 +19,7 @@ import { MaterialModule } from './material/material.module';
     SignInModule,
     SharedModule,
     MaterialModule,
+    LoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
