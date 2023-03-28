@@ -29,10 +29,15 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/@fuse/styles"
+              ]
+            },
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
-              "src/@fuse/styles/material-angular.scss"
+              "src/@fuse/styles/main.scss"
             ],
             "scripts": []
           },
