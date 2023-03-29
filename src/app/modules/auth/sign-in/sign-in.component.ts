@@ -19,7 +19,7 @@ export class SignInComponent implements OnInit{
   }
   ngOnInit() {
     this.signInForm = this._formBuilder.group({
-      email: ['test@gmail', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     })
     console.log(this.signInForm)

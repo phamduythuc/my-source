@@ -5,11 +5,14 @@ import { MessageErrorComponent } from './message-error.component';
 
 
 @NgModule({
-  declarations: [
-    MessageErrorComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+        MessageErrorComponent
+    ],
+    exports: [
+        MessageErrorComponent
+    ],
+    imports: [
+        CommonModule
+    ]
 })
 export class MessageErrorModule { }

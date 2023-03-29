@@ -1,1 +1,3 @@
-<p>message-error works!</p>
+<div *ngIf="showError">
+  <p class="text-red-400 font-semibold" *ngFor="let error of listOfErrors()">{{error}}</p>
+</div>

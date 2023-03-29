@@ -6,6 +6,7 @@ import { SignInComponent } from './sign-in.component';
 import {MaterialModule} from "../../../material/material.module";
 import {AlertModule} from "../../../../@fuse/components/alert/alert.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MessageErrorModule} from "../../../shared/components/message-error/message-error.module";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         MaterialModule,
         AlertModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      MessageErrorModule
     ]
 })
 export class SignInModule { }
