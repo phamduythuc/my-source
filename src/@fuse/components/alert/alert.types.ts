@@ -13,3 +13,5 @@ export type AlertType =
   | 'success'
   | 'warning'
   | 'error';
+export type ButtonType =| 'check'
+| 'close';

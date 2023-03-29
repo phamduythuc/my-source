@@ -1,4 +1,22 @@
-<div>
-
-<!--  <mat-icon></mat-icon>-->
+<div class="box-alert" >
+<!--    icon -->
+    <div class="alert-icon" *ngIf="showIcon">
+        <mat-icon *ngIf="typeAlert === 'success'">check_circle</mat-icon>
+        <mat-icon *ngIf="typeAlert === 'warning'">warning</mat-icon>
+        <mat-icon *ngIf="typeAlert === 'error'">error</mat-icon>
+    </div>
+<!--    content -->
+    <div class="alert-content" *ngIf="content.type">
+        <div class="content-title" *ngIf="content.type">
+            <span>{{content.type}}</span>
+        </div>
+        <div class="content-message" *ngIf="content.message">
+            <span>{{content.message}}</span>
+        </div>
+    </div>
+<!--    button -->
+    <button class="alert-button" *ngIf="showButton">
+        <mat-icon *ngIf="showButton === 'close'" (click)="dismiss()">close</mat-icon>
+        <mat-icon *ngIf="showButton === 'check'" (click)="dismiss()">check</mat-icon>
+    </button>
 </div>

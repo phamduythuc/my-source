@@ -7,3 +7,10 @@
   --mdc-snackbar-supporting-text-size: 18px;
   --mdc-snackbar-supporting-text-weight: 400;
 }
+.mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 0 !important;
+}
