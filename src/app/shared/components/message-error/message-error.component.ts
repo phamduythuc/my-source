@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component ,Input } from '@angular/core';
+import {AbstractControl} from "@angular/forms";
 
 @Component({
   selector: 'app-message-error',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./message-error.component.scss']
 })
 export class MessageErrorComponent {
-
+ @Input() control!: AbstractControl;
+ @Input() name: string =''
 }

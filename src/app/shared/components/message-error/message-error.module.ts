@@ -10,6 +10,7 @@ import { MessageErrorComponent } from './message-error.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [MessageErrorComponent]
 })
 export class MessageErrorModule { }
