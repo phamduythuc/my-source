@@ -11,7 +11,11 @@
             <mat-error class="text-md" *ngIf="signInForm.get('email')?.hasError('required')">
               field required
             </mat-error>
+            <mat-error class="text-md" *ngIf="signInForm.get('email')?.hasError('email')">
+              verify email
+            </mat-error>
           </mat-form-field>
+            <app-message-error [control]="signInForm.get('email')" name="email"></app-message-error>
 
 
         <mat-label class="mb-2 font-medium">Password</mat-label>
