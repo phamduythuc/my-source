@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AlertType} from "../../../../@fuse/components/alert/alert.types";
 import {FormBuilder, FormGroup, Validators, NgForm} from "@angular/forms";
 import {AuthService} from 'src/app/core/auth/auth.service';
-import * as bcrypt from 'bcryptjs';
+
 
 @Component({
     selector: 'app-sign-in',

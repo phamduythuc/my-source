@@ -7,6 +7,10 @@ const routes: Routes = [
 
   { path: '', component: SignInComponent },
   { path: 'second', component: TestComponentComponent },
+
+  { path: 'name', loadChildren: () => import('./modules/auth/sign-up/sign-up.module').then(m => m.SignUpModule) },
+
+  { path: 'forgot-password', loadChildren: () => import('./modules/auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },
 ];
 
 @NgModule({
