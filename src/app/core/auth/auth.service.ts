@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, tap} from "rxjs";
+import {BehaviorSubject, Observable, of, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {evnConfig} from "../../../environments/environment";
 import {Account} from "../user/user.types";
@@ -8,7 +8,7 @@ import {Account} from "../user/user.types";
     providedIn: 'root'
 })
 export class AuthService {
-    signedin$: boolean | any = new BehaviorSubject(null)
+    signedin$ = new BehaviorSubject<boolean | null>(null)
 
     constructor(private http: HttpClient) {
     }
@@ -26,15 +26,19 @@ export class AuthService {
             tap(() => this.signedin$.next(true))
         )
     }
+    signout (): Observable<any> {
+        this.signedin$.next(false)
+        return  of(false)
+    }
 
     checkAuth(): Observable<boolean> {
         if (this.signedin$) {
-            return this.signedin$.next(true);
+           return  of(true)
         }
-        if (!this.signedin$) {
-            return this.signedin$.next(false);
-        }
-        return this.signedin$.next(true);
+        // if (!this.signedin$) {
+        //     return this.signedin$.next(false);
+        // }
+        return of(false);
 
     }
 }

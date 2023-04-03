@@ -3,6 +3,7 @@ import {AlertType} from "../../../../@fuse/components/alert/alert.types";
 import {FormBuilder, FormGroup, Validators, NgForm} from "@angular/forms";
 import {AuthService} from 'src/app/core/auth/auth.service';
 import * as bcrypt from 'bcryptjs';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-sign-in',
@@ -19,7 +20,7 @@ export class SignInComponent implements OnInit {
     signInForm!: FormGroup;
     @ViewChild('signInNgForm') signInNgForm!: NgForm
 
-    constructor(private _formBuilder: FormBuilder, private authService: AuthService) {
+    constructor(private _formBuilder: FormBuilder, private authService: AuthService, private router: Router ) {
     }
 
     ngOnInit() {
@@ -46,6 +47,8 @@ export class SignInComponent implements OnInit {
 
         this.authService.signin(this.signInForm.value).subscribe(res => {
                 this.accessToken = res?.body?.token
+            this.router.navigateByUrl('/')
+
             },
             error => {
                 this.signInForm.enable();

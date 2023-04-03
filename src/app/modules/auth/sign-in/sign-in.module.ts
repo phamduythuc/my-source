@@ -21,6 +21,7 @@ import {MessageErrorModule} from "../../../shared/components/message-error/messa
         FormsModule,
         ReactiveFormsModule,
       MessageErrorModule
-    ]
+    ],
+    exports:[SignInComponent]
 })
 export class SignInModule { }
