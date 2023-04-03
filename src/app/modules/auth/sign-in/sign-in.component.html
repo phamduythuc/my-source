@@ -1,4 +1,4 @@
-<div class="w-[100vw] h-[100vh] flex justify-center">
+<div class="w-[100vw] flex justify-center">
   <div class="p-8 my-8 w-[25%] bg-stone-100 rounded-3xl shadow-lg shadow-gray-700">
     <div class="w-full flex flex-col ">
       <div class="font-semibold text-4xl mb-3">Sign in</div>
@@ -40,6 +40,7 @@
       </div>
 
         <button mat-flat-button class="fuse-mat-button-large bg-green-300" color="primary" (click)="signIn()" [disabled]="signInForm.invalid">Login</button>
+        <div class="w-full flex justify-center mt-5"><span>Dont't have account? <a class="text-blue-400 underline decoration-1" routerLink="/sign-up">Signup</a></span></div>
       </form>
     </div>
   </div>

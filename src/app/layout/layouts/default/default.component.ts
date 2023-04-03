@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent implements OnInit {
-    signin$: BehaviorSubject<boolean |null>;
+    signin$: BehaviorSubject<boolean>;
 
     constructor(private auth: AuthService,private router: Router) {
         this.signin$ = this.auth.signedin$
@@ -17,13 +17,12 @@ export class DefaultComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.auth.checkAuth()
+        this.auth.checkAuth().subscribe(() =>{})
         console.log(this.signin$);
     }
     logout(): void {
-            localStorage.removeItem('token');
-            this.auth.signout()
-                this.router.navigateByUrl('/')
+            this.auth.signout().subscribe();
+                // this.router.navigateByUrl('/')
 
         console.log(this.signin$);
         }

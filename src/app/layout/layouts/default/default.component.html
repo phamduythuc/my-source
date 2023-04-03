@@ -1,11 +1,12 @@
 <div>
     <ng-container *ngIf="(signin$ | async)">
-
-    <button mat-raised-button (click)="logout()" >sign out</button>
+        <button mat-raised-button (click)="logout()" >sign out</button>
     </ng-container>
     <ng-container *ngIf="!(signin$ | async)">
 
     <button mat-raised-button routerLink="/signin" >Sign in</button>
+
     </ng-container>
+
     <router-outlet></router-outlet>
 </div>

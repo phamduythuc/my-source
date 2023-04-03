@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
     signInForm!: FormGroup;
     @ViewChild('signInNgForm') signInNgForm!: NgForm
 
-    constructor(private _formBuilder: FormBuilder, private authService: AuthService) {
+    constructor(private _formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     }
 
     ngOnInit() {
@@ -28,15 +28,10 @@ export class SignInComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.maxLength(24), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/)]]
         })
+        console.log(this.authService.signedin$)
     }
 
-    set accessToken(accessToken: string) {
-        localStorage.setItem('token', accessToken);
-    }
 
-    get accessToken() {
-        return localStorage.getItem('token') ?? '';
-    }
 
     signIn() {
         if (this.signInForm.invalid) {
@@ -46,7 +41,9 @@ export class SignInComponent implements OnInit {
         this.showAlert = false;
 
         this.authService.signin(this.signInForm.value).subscribe(res => {
-                this.accessToken = res?.body?.token
+                // this.accessToken = res?.body?.token
+                console.log(this.authService.signedin$)
+            this.router.navigateByUrl('/')
             },
             error => {
                 this.signInForm.enable();
