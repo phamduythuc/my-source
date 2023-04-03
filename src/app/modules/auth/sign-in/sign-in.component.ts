@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
     signInForm!: FormGroup;
     @ViewChild('signInNgForm') signInNgForm!: NgForm
 
-    constructor(private _formBuilder: FormBuilder, private authService: AuthService, private router: Router ) {
+    constructor(private _formBuilder: FormBuilder, private authService: AuthService) {
     }
 
     ngOnInit() {
@@ -47,8 +47,6 @@ export class SignInComponent implements OnInit {
 
         this.authService.signin(this.signInForm.value).subscribe(res => {
                 this.accessToken = res?.body?.token
-            this.router.navigateByUrl('/')
-
             },
             error => {
                 this.signInForm.enable();
