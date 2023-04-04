@@ -15,7 +15,7 @@
               verify email
             </mat-error>
           </mat-form-field>
-<!--            <app-message-error [control]="signInForm.get('email')" name="email"></app-message-error>-->
+            <app-message-error [control]="signInForm.get('email')" name="email"></app-message-error>
 
 
         <mat-label class="mb-2 font-medium">{{t ('signIn.password')}}</mat-label>
@@ -47,5 +47,6 @@
   <button data-cy="en" mat-button color="primary" (click)="changeLang('en')">english</button>
   <button data-cy="vi" mat-button color="accent" (click)="changeLang('vi')">vietnam</button>
 </div>
+
 
 

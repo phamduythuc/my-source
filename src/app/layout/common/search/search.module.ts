@@ -5,11 +5,14 @@ import { SearchComponent } from './search.component';
 
 
 @NgModule({
-  declarations: [
-    SearchComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+        SearchComponent
+    ],
+    exports: [
+        SearchComponent
+    ],
+    imports: [
+        CommonModule
+    ]
 })
 export class SearchModule { }

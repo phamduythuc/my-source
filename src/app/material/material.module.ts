@@ -9,6 +9,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 const MATERIALMODDULES = [
   MatDialogModule,
   MatButtonModule,
@@ -18,7 +20,9 @@ const MATERIALMODDULES = [
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+    MatMenuModule,
+    MatDividerModule
 ];
 
 @NgModule({

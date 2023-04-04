@@ -1,0 +1,22 @@
+<button mat-icon-button color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon button with a home icon">
+    <ng-container *ngTemplateOutlet="flagImg; context: {$implicit: activeLang}"></ng-container>
+</button>
+<mat-menu #menu="matMenu" xPosition="before">
+    <ng-container *ngFor="let lang of langs; trackBy: trackByFn">
+        <button mat-menu-item>
+        <span class="flex items-center ">
+                <ng-container *ngTemplateOutlet="flagImg; context: {$implicit: lang.id}"></ng-container>
+                <span class="ml-3 text-md">{{lang.label}}</span>
+        </span>
+        </button>
+    </ng-container>
+    <!--    <mat-divider></mat-divider>-->
+</mat-menu>
+
+<ng-template let-lang #flagImg>
+    <span class="relative w-8 overflow-hidden">
+        <img class="w-full" [src]="'../../assets/flags/' + flagCode[lang] + '.png'">
+    </span>
+
+</ng-template>
+<!--src="assets/flags/vi.png"-->

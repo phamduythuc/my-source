@@ -1,1 +1,13 @@
-<p>user works!</p>
+<button mat-icon-button color="primary" [matMenuTriggerFor]="menu"  aria-label="Example icon button with a home icon">
+    <mat-icon>account_circle</mat-icon>
+</button>
+<mat-menu #menu="matMenu" >
+    <button mat-menu-item >
+        thucphamduy@gmail.com
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item> <mat-icon>settings</mat-icon> <span>My account</span></button>
+    <button mat-menu-item> <mat-icon>person</mat-icon> <span>Profile</span></button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item> <mat-icon>logout</mat-icon> <span>Sign out</span></button>
+</mat-menu>
