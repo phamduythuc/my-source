@@ -3,7 +3,7 @@ import {BehaviorSubject, map, Observable, of, switchMap, throwError} from "rxjs"
 import {catchError, tap} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {evnConfig} from "../../../environments/environment";
-import {Account} from "../user/user.types";
+import {Account, AccountSignup} from "../user/user.types";
 
 @Injectable({
     providedIn: 'root'
@@ -38,7 +38,19 @@ export class AuthService {
             })
         )
     }
-
+    signup( account: AccountSignup): Observable<any> {
+      return this.http.post(evnConfig.apiUrl + '/user/signup', account, {observe: "response"}).pipe(
+        map((res: any) => {
+          this.accessToken = res.body.token;
+          this.signedin$.next(this.accessToken)
+          return res
+        }),
+        catchError( (err) => {
+          this.signedin$.next(null);
+          return  throwError(err);
+        })
+      )
+    }
     signout(): Observable<any> {
         this.signedin$.next(false);
         localStorage.removeItem('token')

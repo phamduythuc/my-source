@@ -7,6 +7,7 @@ import {MaterialModule} from "../../../material/material.module";
 import {AlertModule} from "../../../../@fuse/components/alert/alert.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MessageErrorModule} from "../../../shared/components/message-error/message-error.module";
+import {TranslocoModule} from "@ngneat/transloco";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MessageErrorModule} from "../../../shared/components/message-error/messa
         AlertModule,
         FormsModule,
         ReactiveFormsModule,
-      MessageErrorModule
+        MessageErrorModule,
+        TranslocoModule
     ],
     exports:[SignInComponent]
 })

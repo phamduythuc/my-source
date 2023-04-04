@@ -1,64 +1,58 @@
-<div class="w-[100vw] flex justify-center">
+<div class="w-[100vw] flex justify-center" *transloco="let t">
     <div class="p-8 my-8 w-[25%] bg-stone-100 rounded-3xl shadow-lg shadow-gray-700">
         <div class="w-full flex flex-col ">
-            <div class="font-semibold text-4xl mb-3">Sign up</div>
+            <div class="font-semibold text-4xl mb-3">{{t ('signUp.fullName')}}</div>
             <!--      <app-alert *ngIf="showAlert" [typeAlert]="alert.type" [showIcon]="true" [content]="alert" [showButton]="'close'" [appearance]="'fill'" ></app-alert>-->
-            <form class="w-full mt-5 flex flex-col">
+            <form [formGroup]="signUpForm" #signUpNgForm="ngForm" class="w-full mt-5 flex flex-col">
                 <mat-label class="mb-2 font-medium required">Full Name</mat-label>
                 <mat-form-field appearance="outline" class="w-full mb-3">
-                    <input matInput class="border border-slate-100 rounded-md py-5" placeholder="Email">
-                    <!--          <mat-error class="text-md" *ngIf="signInForm.get('email')?.hasError('required')">-->
-                    <!--            field required-->
-                    <!--          </mat-error>-->
-                    <!--          <mat-error class="text-md" *ngIf="signInForm.get('email')?.hasError('email')">-->
-                    <!--            verify email-->
-                    <!--          </mat-error>-->
+                    <input matInput class="border border-slate-100 rounded-md py-5" placeholder="FullName" [formControlName]="'fullName'">
+                              <mat-error class="text-md" *ngIf="signUpForm.get('fullName')?.hasError('required')">
+                                Field required
+                              </mat-error>
                 </mat-form-field>
 
                 <mat-label class="mb-2 font-medium required">Email</mat-label>
                 <mat-form-field appearance="outline" class="w-full mb-3">
-                    <input matInput class="border border-slate-100 rounded-md py-5" placeholder="Email">
-                    <!--          <mat-error class="text-md" *ngIf="signInForm.get('email')?.hasError('required')">-->
-                    <!--            field required-->
-                    <!--          </mat-error>-->
-                    <!--          <mat-error class="text-md" *ngIf="signInForm.get('email')?.hasError('email')">-->
-                    <!--            verify email-->
-                    <!--          </mat-error>-->
+                    <input matInput class="border border-slate-100 rounded-md py-5" placeholder="Email" [formControlName]="'email'">
+                              <mat-error class="text-md" *ngIf="signUpForm.get('email')?.hasError('required')">
+                                Field required
+                              </mat-error>
+                              <mat-error class="text-md" *ngIf="signUpForm.get('email')?.hasError('email')">
+                                Email invalidate
+                              </mat-error>
                 </mat-form-field>
-                <!--            <app-message-error [control]="signInForm.get('email')" name="email"></app-message-error>-->
+<!--                            <app-message-error [control]="signUpForm.get('email')" name="email"></app-message-error>-->
 
 
                 <mat-label class="mb-2 font-medium">Password</mat-label>
                 <mat-form-field appearance="outline" class="w-full">
-                    <input matInput class="" [type]="hide ? 'password' : 'text'" placeholder="password">
+                    <input matInput class="" [type]="hide ? 'password' : 'text'" placeholder="password" [formControlName]="'password'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <!--          <mat-error *ngIf="signInForm.get('password')?.hasError('required')">-->
-                    <!--            field required-->
-                    <!--          </mat-error>-->
-                    <!--          <mat-error class="block" *ngIf="signInForm.get('password')?.hasError('pattern')">-->
-                    <!--            Password <span class="font-semibold">Course@123</span>-->
+                              <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">
+                                field required
+                              </mat-error>
+                              <mat-error class="block" *ngIf="signUpForm.get('password')?.hasError('pattern')">
+                                Password <span class="font-semibold">Course@123</span>
 
-                    <!--            &lt;!&ndash;            Password must contain at least 8 characters and no more than 24 characters, with uppercase letters, numbers, and special characters.&ndash;&gt;-->
-                    <!--          </mat-error>-->
+                                <!--            Password must contain at least 8 characters and no more than 24 characters, with uppercase letters, numbers, and special characters.-->
+                              </mat-error>
                 </mat-form-field>
                 <mat-label class="mb-2 font-medium">Password Confirm</mat-label>
                 <mat-form-field appearance="outline" class="w-full">
-                    <input matInput class="" [type]="hide ? 'password' : 'text'" placeholder="password">
+                    <input  matInput class="" [type]="hide ? 'password' : 'text'" placeholder="password"
+                           [formControlName]="'confirmPassword'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <!--          <mat-error *ngIf="signInForm.get('password')?.hasError('required')">-->
-                    <!--            field required-->
-                    <!--          </mat-error>-->
-                    <!--          <mat-error class="block" *ngIf="signInForm.get('password')?.hasError('pattern')">-->
-                    <!--            Password <span class="font-semibold">Course@123</span>-->
-
-                    <!--            &lt;!&ndash;            Password must contain at least 8 characters and no more than 24 characters, with uppercase letters, numbers, and special characters.&ndash;&gt;-->
-                    <!--          </mat-error>-->
+                              <mat-error class="block" *ngIf="signUpForm.get('confirmPassword')?.hasError('mismatchedPasswords')">
+                                Passwords do not match
+                                <!--            Password must contain at least 8 characters and no more than 24 characters, with uppercase letters, numbers, and special characters.-->
+                              </mat-error>
                 </mat-form-field>
 <!--                <div class="flex items-center justify-between mb-8">-->
 <!--                    <mat-checkbox color="primary">Remember me</mat-checkbox>-->
@@ -66,7 +60,9 @@
 <!--                </div>-->
 
 
-                <button mat-flat-button class="fuse-mat-button-large bg-green-300" color="primary">Login</button>
+                <button [disabled]="signUpForm.invalid"
+                        (click)="onSubmit(signUpForm.value)"
+                        mat-flat-button class="fuse-mat-button-large bg-green-300" color="primary">Login</button>
                 <div class="w-full flex justify-center mt-5"><span>Have an account? <a
                         class="text-blue-400 underline decoration-1" routerLink="/signin">Login</a> </span></div>
             </form>

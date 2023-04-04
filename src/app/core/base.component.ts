@@ -12,7 +12,7 @@ import {
   template: '',
   styles: [],
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent {
   public dialogService: MatDialog;
   public snackbarService: MatSnackBar;
 
@@ -23,8 +23,6 @@ export class BaseComponent implements OnInit {
     this.dialogService = injector.get(MatDialog);
     this.snackbarService = injector.get(MatSnackBar);
   }
-
-  ngOnInit() {}
 
   showDialog(component?: any, option: MatDialogConfig = {}, callback?: any) {
     const ref = this.dialogService.open(component, {

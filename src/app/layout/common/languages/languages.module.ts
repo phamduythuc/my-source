@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguagesComponent } from './languages.component';
 import {MaterialModule} from "../../../material/material.module";
-
+import {TranslocoModule} from "@ngneat/transloco";
 
 
 @NgModule({
@@ -14,7 +14,9 @@ import {MaterialModule} from "../../../material/material.module";
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    TranslocoModule,
+
   ]
 })
 export class LanguagesModule { }
