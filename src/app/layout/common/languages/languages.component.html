@@ -3,7 +3,7 @@
 </button>
 <mat-menu #menu="matMenu" xPosition="before">
     <ng-container *ngFor="let lang of langs; trackBy: trackByFn">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="changeLang(lang.id)">
         <span class="flex items-center ">
                 <ng-container *ngTemplateOutlet="flagImg; context: {$implicit: lang.id}"></ng-container>
                 <span class="ml-3 text-md">{{lang.label}}</span>
@@ -19,4 +19,5 @@
     </span>
 
 </ng-template>
+{{'home.lang' | transloco}}
 <!--src="assets/flags/vi.png"-->

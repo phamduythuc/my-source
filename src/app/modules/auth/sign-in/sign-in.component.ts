@@ -19,8 +19,8 @@ export class SignInComponent implements OnInit {
     }
     showAlert: boolean = false;
     signInForm!: FormGroup;
-  activeLang: String | undefined;
-  availableLangs: String[] | {id: string, label: string}[] | undefined;
+  // activeLang: String | undefined;
+  // availableLangs: String[] | {id: string, label: string}[] | undefined;
     @ViewChild('signInNgForm') signInNgForm!: NgForm
 
     constructor(
@@ -37,13 +37,13 @@ export class SignInComponent implements OnInit {
             password: ['', [Validators.required, Validators.maxLength(24), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/)]]
         })
         console.log(this.authService.signedin$)
-      this.activeLang = this.translocoService.getActiveLang();
-      this.availableLangs = this.translocoService.getAvailableLangs();
+      // this.activeLang = this.translocoService.getActiveLang();
+      // this.availableLangs = this.translocoService.getAvailableLangs();
     }
-  changeLang(lang: string) {
-    this.translocoService.setActiveLang(lang);
-    this.activeLang = lang;
-  }
+  // changeLang(lang: string) {
+  //   this.translocoService.setActiveLang(lang);
+  //   this.activeLang = lang;
+  // }
 
     signIn() {
         if (this.signInForm.invalid) {

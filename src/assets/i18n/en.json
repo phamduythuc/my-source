@@ -8,6 +8,8 @@
   },
   "signUp": {
   "fullName": "Sign Up"
+  },
+  "home": {
+    "lang": "English"
   }
-
 }

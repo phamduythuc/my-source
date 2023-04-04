@@ -8,5 +8,8 @@
   },
   "signUp": {
     "fullName": "Đăng Ký"
+  },
+  "home": {
+    "lang": "Tiếng Việt"
   }
 }

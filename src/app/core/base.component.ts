@@ -38,14 +38,14 @@ export class BaseComponent {
   showSnackbar(messages: string, type?: string) {
     this.snackbarService.open(messages, 'done', {
       panelClass:
-          type === 'success'
+        type === 'success'
           ? 'bg-lime-500'
           : type === 'warning'
           ? 'bg-yellow-500'
           : 'bg-red-500',
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      duration: 2000
+      // duration: 5000
     });
   }
 }

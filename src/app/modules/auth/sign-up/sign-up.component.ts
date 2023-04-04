@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from "@angular/
 import {AuthService} from "../../../core/auth/auth.service";
 import {BaseComponent} from "../../../core/base.component";
 import {Router} from "@angular/router";
-import { TranslocoService} from "@ngneat/transloco";
+
 
 @Component({
   selector: 'app-sign-up',
@@ -12,13 +12,13 @@ import { TranslocoService} from "@ngneat/transloco";
 })
 export class SignUpComponent extends BaseComponent implements OnInit  {
   signUpForm!: FormGroup;
+  idCheck: any;
   @ViewChild('signUpNgForm') signInNgForm!: NgForm
   hide:boolean = true;
   constructor(
     private _formBuilder: FormBuilder,
     private authService: AuthService,
     private route: Router,
-    private  translocoService: TranslocoService,
     private injector: Injector) {
     super(injector)
     this.signUpForm = this._formBuilder.group({
