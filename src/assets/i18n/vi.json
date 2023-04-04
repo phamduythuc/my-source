@@ -1,0 +1,12 @@
+{
+  "signIn": {
+    "name": "Đăng Nhập",
+    "password": "Mật khẩu",
+    "rememberMe" : "Ghi nhớ tài khoản",
+    "forgotPassword": "Quên tài khoản",
+    "noAccount": "Chưa có tài khoản?"
+  },
+  "signUp": {
+    "fullName": "Đăng Ký"
+  }
+}

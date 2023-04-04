@@ -18,6 +18,7 @@ import {LayoutModule} from "./layout/layout.module";
 
 import {LoadingInterceptor} from "../@fuse/services/loading/loading.interceptor";
 import {ReactiveFormsModule} from "@angular/forms";
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -32,6 +33,7 @@ import {ReactiveFormsModule} from "@angular/forms";
         LayoutModule,
         HttpClientModule,
         FuseModule,
+        TranslocoRootModule,
     ],
     providers: [
         {

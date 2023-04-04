@@ -12,7 +12,7 @@ import {
   template: '',
   styles: [],
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent {
   public dialogService: MatDialog;
   public snackbarService: MatSnackBar;
 
@@ -23,8 +23,6 @@ export class BaseComponent implements OnInit {
     this.dialogService = injector.get(MatDialog);
     this.snackbarService = injector.get(MatSnackBar);
   }
-
-  ngOnInit() {}
 
   showDialog(component?: any, option: MatDialogConfig = {}, callback?: any) {
     const ref = this.dialogService.open(component, {
@@ -40,14 +38,14 @@ export class BaseComponent implements OnInit {
   showSnackbar(messages: string, type?: string) {
     this.snackbarService.open(messages, 'done', {
       panelClass:
-        type === 'success'
+          type === 'success'
           ? 'bg-lime-500'
           : type === 'warning'
           ? 'bg-yellow-500'
           : 'bg-red-500',
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      // duration: 5000
+      duration: 2000
     });
   }
 }

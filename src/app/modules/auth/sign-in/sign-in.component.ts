@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators, NgForm} from "@angular/forms";
 import {AuthService} from 'src/app/core/auth/auth.service';
 import * as bcrypt from 'bcryptjs';
 import {Router} from "@angular/router";
+import {TranslocoService} from "@ngneat/transloco";
 
 @Component({
     selector: 'app-sign-in',
@@ -18,9 +19,16 @@ export class SignInComponent implements OnInit {
     }
     showAlert: boolean = false;
     signInForm!: FormGroup;
+  activeLang: String | undefined;
+  availableLangs: String[] | {id: string, label: string}[] | undefined;
     @ViewChild('signInNgForm') signInNgForm!: NgForm
 
-    constructor(private _formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+    constructor(
+      private _formBuilder: FormBuilder,
+      private authService: AuthService,
+      private router: Router,
+      private  translocoService: TranslocoService,
+    ) {
     }
 
     ngOnInit() {
@@ -29,9 +37,13 @@ export class SignInComponent implements OnInit {
             password: ['', [Validators.required, Validators.maxLength(24), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/)]]
         })
         console.log(this.authService.signedin$)
+      this.activeLang = this.translocoService.getActiveLang();
+      this.availableLangs = this.translocoService.getAvailableLangs();
     }
-
-
+  changeLang(lang: string) {
+    this.translocoService.setActiveLang(lang);
+    this.activeLang = lang;
+  }
 
     signIn() {
         if (this.signInForm.invalid) {
