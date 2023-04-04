@@ -32,6 +32,7 @@ const routes: Routes = [
     },
     {
         path: 'sign-out',
+        canLoad: [AuthGuard],
         loadChildren: () => import('./modules/auth/sign-out/sign-out.module').then(m => m.SignOutModule)
     },
 ];
