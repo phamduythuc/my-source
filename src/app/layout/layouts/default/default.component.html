@@ -1,18 +1,22 @@
 <div class="w-full">
     <!--warpper-->
-    <div class="w-full flex flex-col">
+    <div class="w-full flex  flex-col">
         <!--header-->
-        <div class="relative flex w-full h-16 border-b-2">
+        <div class="relative flex items-center w-full h-16 border-b-2">
             <ng-container>
                 <div class="flex items-center mx-2">
                     <img class="w-20" src="../../assets/image/logo/logo.png" alt="logo">
                 </div>
             </ng-container>
+            <div class=" flex items-center ml-auto space-x-4">
+                <a routerLink="/" >My couse</a>
+                <a routerLink="/">Upload Video</a>
+            </div>
             <div class="flex items-center ml-auto">
+                <app-search></app-search>
                 <app-languages></app-languages>
                 <app-notifications></app-notifications>
                 <app-user></app-user>
-                <!--                <app-search></app-search>-->
             </div>
         </div>
         <div>

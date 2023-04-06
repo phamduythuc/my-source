@@ -15,9 +15,8 @@
 
 <ng-template let-lang #flagImg>
     <span class="relative w-8 overflow-hidden">
-        <img class="w-full" [src]="'../../assets/flags/' + flagCode[lang] + '.png'">
+        <img class="w-full" [src]="'../../assets/flags/' + flagCode[lang] + '.png'" [alt]="'flag' + flagCode[lang]">
     </span>
 
 </ng-template>
-{{'home.lang' | transloco}}
 <!--src="assets/flags/vi.png"-->

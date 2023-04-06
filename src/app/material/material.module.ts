@@ -11,6 +11,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 const MATERIALMODDULES = [
   MatDialogModule,
   MatButtonModule,
@@ -22,7 +23,9 @@ const MATERIALMODDULES = [
   MatInputModule,
   MatCheckboxModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatAutocompleteModule
+
 ];
 
 @NgModule({

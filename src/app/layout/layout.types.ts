@@ -1,1 +1,2 @@
-export type LayoutTypes = 'default' | ''
+export type LayoutTypes = 'default' | 'thin'
+export type SearchTypes = 'default' | 'thin'

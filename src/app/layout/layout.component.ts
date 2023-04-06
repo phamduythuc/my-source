@@ -14,6 +14,6 @@ export class LayoutComponent {
   constructor(private config: ConfigService, private router: ActivatedRoute, private auth: AuthService) {
   }
   ngOnInit() {
-    console.log(this.router.snapshot.data['layout']);
+    this.layout = this.router.snapshot.data['layout'];
   }
 }

@@ -1,1 +1,19 @@
-<p>search works!</p>
+<ng-container *ngIf="appearance === 'default'">
+   <button mat-icon-button *ngIf="!opened" (click)="open()">
+       <mat-icon>search</mat-icon>
+   </button>
+
+        <div class="absolute w-full inset-0 flex items-center z-[9999] shrink-0 bg-gray-100" *ngIf="opened" @searchAnimation>
+            <mat-icon class="absolute ml-6">search</mat-icon>
+            <input matInput class="w-full h-full px-16 outline-none" type="text" placeholder="Search"  [matAutocomplete]="auto" >
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of reusult" [value]="option.label">
+                    {{option.label}}
+                </mat-option>
+            </mat-autocomplete>
+
+            <button mat-icon-button class="absolute border-gray-200" (click)="close()"> <mat-icon>close</mat-icon></button>
+        </div>
+
+</ng-container>
