@@ -1,10 +1,17 @@
-<div class="w-full h-[100vh] flex justify-center items-center">
+<div *transloco="let t" class="w-full h-[100vh] flex justify-center items-center">
     <div class="w-fit h-fit p-6 rounded-3xl text-center shadow-md shadow-gray-600">
         <div class="w-full flex justify-center">
             <img class="w-1/3" src="https://cdn-icons-png.flaticon.com/512/9935/9935594.png">
         </div>
-        <div class="text-3xl font-bold text-gray-600">You have Log out</div>
-        <p>You are being redirected</p>
-        <p>Go to <a class="text-blue-400 underline decoration-1" routerLink="/signin">Login</a> </p>
+        <div class="text-3xl font-bold text-gray-600">{{t ('signOut.haveLogOut')}}</div>
+          <ng-container *ngIf="countdown > 0">
+            {{t ('signOut.redirected')}} {{countdown | i18nPlural: countdownMapping }}
+          </ng-container>
+
+          <!-- Redirect message -->
+          <ng-container *ngIf="countdown === 0">
+            {{t ('signOut.redirecting')}}
+          </ng-container>
+        <p>{{t ('signOut.goTo')}} <a class="text-blue-400 underline decoration-1" routerLink="/sign-in">{{t ('signIn.title')}}</a> </p>
     </div>
 </div>

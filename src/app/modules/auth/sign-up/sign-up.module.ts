@@ -6,7 +6,7 @@ import { SignUpComponent } from './sign-up.component';
 import {MaterialModule} from "../../../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MessageErrorModule} from "../../../shared/components/message-error/message-error.module";
-import {TranslocoModule} from "@ngneat/transloco";
+import {SharedModule} from "../../../shared/shared.module";
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import {TranslocoModule} from "@ngneat/transloco";
     MaterialModule,
     ReactiveFormsModule,
     MessageErrorModule,
-    TranslocoModule
+    SharedModule
   ]
 })
 export class SignUpModule { }

@@ -1,6 +1,6 @@
 {
   "signIn": {
-    "name": "Sign In",
+    "title": "Sign In",
     "password": "Password",
     "rememberMe" : "Remember Me",
     "forgotPassword": "Forgot Password",
@@ -8,6 +8,13 @@
   },
   "signUp": {
   "fullName": "Sign Up"
+  },
+  "signOut": {
+    "title": "Sign Out",
+    "goTo": "Go to",
+    "haveLogOut": "You have Log out",
+    "redirected": "You will be redirected to",
+    "redirecting": "You are being redirected!"
   },
   "home": {
     "lang": "English"
