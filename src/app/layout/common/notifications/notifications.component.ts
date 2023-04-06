@@ -13,7 +13,7 @@ export class NotificationsComponent {
     overlayRef!: OverlayRef
 
 
-    constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef) {
+    constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef, private el: ElementRef) {
     }
 
     ngOnInit(): void {
@@ -22,8 +22,9 @@ export class NotificationsComponent {
     }
 
     openNotification() {
-        console.log(this.btnNotification._elementRef.nativeElement)
-        if(!this.overlayRef) {
+        console.log(this.el)
+        // console.log(this.btnNotification._elementRef.nativeElement)
+        if (!this.overlayRef) {
             this.createOverlay();
         }
         this.overlayRef.attach(new TemplatePortal(this.notificationBox, this.viewContainerRef))
@@ -31,16 +32,25 @@ export class NotificationsComponent {
 
     createOverlay() {
         this.overlayRef = this.overlay.create({
-            positionStrategy: this.overlay.position().flexibleConnectedTo(this.btnNotification._elementRef.nativeElement).withLockedPosition(true).withPush(true).withPositions([
+            scrollStrategy: this.overlay.scrollStrategies.block(),
+            hasBackdrop: true,
+            width: "22%",
+            backdropClass: 'bg-transparent',
+            positionStrategy: this.overlay.position().flexibleConnectedTo(this.el.nativeElement).withLockedPosition(true).withPush(true).withPositions([
                 {
-                    originX: 'start',
-                    originY: 'bottom',
+                    originX : 'start',
+                    originY : 'bottom',
                     overlayX: 'end',
-                    overlayY: 'center',
+                    overlayY: 'top',
+                },
 
-                }
             ]),
-            scrollStrategy: this.overlay.scrollStrategies.block()
         })
+
+        this.overlayRef.backdropClick().subscribe(() => {
+            this.overlayRef.detach();
+            }
+        )
+
     }
 }
