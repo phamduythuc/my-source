@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LanguagesComponent } from './languages.component';
 import {MaterialModule} from "../../../material/material.module";
 import {TranslocoModule} from "@ngneat/transloco";
+import {TranslocoRootModule} from "../../../core/transloco/transloco-root.module";
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import {TranslocoModule} from "@ngneat/transloco";
   imports: [
     CommonModule,
     MaterialModule,
-    TranslocoModule,
+    TranslocoRootModule,
 
   ]
 })

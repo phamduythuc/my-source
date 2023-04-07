@@ -1,6 +1,6 @@
 {
   "signIn": {
-    "name": "Đăng Nhập",
+    "title": "Đăng Nhập",
     "password": "Mật khẩu",
     "rememberMe" : "Ghi nhớ tài khoản",
     "forgotPassword": "Quên tài khoản",
@@ -8,6 +8,13 @@
   },
   "signUp": {
     "fullName": "Đăng Ký"
+  },
+  "signOut": {
+    "title": "Đăng xuất",
+    "goTo": "Đi đến",
+    "haveLogOut": "Bạn đã đăng xuất",
+    "redirected": "Tự động chuyển hướng đến trang chủ sau",
+    "redirecting": "Bạn đang được chuyển hướng!"
   },
   "home": {
     "lang": "Tiếng Việt"

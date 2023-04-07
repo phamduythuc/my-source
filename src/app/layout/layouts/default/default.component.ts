@@ -26,5 +26,4 @@ export class DefaultComponent implements OnInit {
 
         console.log(this.signin$);
         }
-
 }

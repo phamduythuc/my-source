@@ -1,24 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LayoutComponent } from './layout.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {LayoutComponent} from './layout.component';
 import {DefaultModule} from "./layouts/default/default.module";
+import {HomeModule} from "./home/home.module";
+import {SharedModule} from "../shared/shared.module";
 import {ThinModule} from "./layouts/thin/thin.module";
-import { SettingComponent } from './common/setting/setting.component';
-
-
-
 
 @NgModule({
-  declarations: [
-    LayoutComponent,
-    SettingComponent
-  ],
+    declarations: [
+        LayoutComponent
+    ],
     imports: [
         CommonModule,
         DefaultModule,
-        ThinModule,
 
+        HomeModule,
+        CommonModule,
+        // DefaultModule,
+        SharedModule,
+        ThinModule
     ],
-  exports: [LayoutComponent]
+    exports: [LayoutComponent]
 })
-export class LayoutModule { }
+export class LayoutModule {
+}

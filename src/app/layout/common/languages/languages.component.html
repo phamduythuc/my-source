@@ -1,8 +1,10 @@
-<button mat-icon-button color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon button with a home icon">
-    <ng-container *ngTemplateOutlet="flagImg; context: {$implicit: activeLang}"></ng-container>
-</button>
-<mat-menu #menu="matMenu" xPosition="before">
-    <ng-container *ngFor="let lang of langs; trackBy: trackByFn">
+<div class="flex items-center">
+  <div>
+    <button mat-icon-button color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon button with a home icon">
+      <ng-container *ngTemplateOutlet="flagImg; context: {$implicit: activeLang}"></ng-container>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <ng-container *ngFor="let lang of langs; trackBy: trackByFn">
         <button mat-menu-item (click)="changeLang(lang.id)">
         <span class="flex items-center ">
                 <ng-container *ngTemplateOutlet="flagImg; context: {$implicit: lang.id}"></ng-container>
@@ -15,8 +17,11 @@
 
 <ng-template let-lang #flagImg>
     <span class="relative w-8 overflow-hidden">
-        <img class="w-full" [src]="'../../assets/flags/' + flagCode[lang] + '.png'" [alt]="'flag' + flagCode[lang]">
+        <img class="w-full" [src]="'../../assets/flags/' + flagCode[lang] + '.png'">
     </span>
-
-</ng-template>
-<!--src="assets/flags/vi.png"-->
+    </ng-template>
+  </div>
+  <div class="title-subject">
+    {{'home.lang' | transloco}}
+  </div>
+</div>

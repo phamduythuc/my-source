@@ -22,9 +22,9 @@ const MATERIALMODDULES = [
   MatIconModule,
   MatInputModule,
   MatCheckboxModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatAutocompleteModule
+  MatMenuModule,
+  MatDividerModule,
+  MatAutocompleteModule
 
 ];
 

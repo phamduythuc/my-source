@@ -5,9 +5,17 @@ import { ViewDialogComponent } from './components/view-dialog/view-dialog.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MaterialModule } from '../material/material.module';
+import { TranslocoRootModule } from "../core/transloco/transloco-root.module";
+import { TranslocoModule} from "@ngneat/transloco";
 
+export const MAT_MODULES = [
+  MatButtonModule,
+  TranslocoModule,
+  MatDialogModule,
+];
 @NgModule({
   declarations: [ConfirmDialogComponent, ViewDialogComponent],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule,TranslocoRootModule,...MAT_MODULES],
+  exports: [...MAT_MODULES]
 })
 export class SharedModule {}
