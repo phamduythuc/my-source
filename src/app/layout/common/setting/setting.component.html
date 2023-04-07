@@ -1,1 +1,13 @@
-<
+<div class="fixed flex items-center justify-center right-0 top-1/2 translate-y-[-1/2]  flex p-3 bg-amber-400 rounded-md" (click)="openSetting()">
+  <mat-icon>settings</mat-icon>
+</div>
+
+<ng-template #showNavSetting>
+  <div class="fixed w-[20%] h-full bg-amber-200 flex flex-col ">
+<!--    header-->
+    <div class="flex items-center">
+      <span>Setting</span>
+      <mat-icon>settings</mat-icon>
+    </div>
+  </div>
+</ng-template>

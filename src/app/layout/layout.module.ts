@@ -5,10 +5,13 @@ import {DefaultModule} from "./layouts/default/default.module";
 import {HomeModule} from "./home/home.module";
 import {SharedModule} from "../shared/shared.module";
 import {ThinModule} from "./layouts/thin/thin.module";
+import {SettingComponent} from "./common/setting/setting.component";
+import {MaterialModule} from "../material/material.module";
 
 @NgModule({
     declarations: [
-        LayoutComponent
+        LayoutComponent,
+        SettingComponent
     ],
     imports: [
         CommonModule,
@@ -18,7 +21,8 @@ import {ThinModule} from "./layouts/thin/thin.module";
         CommonModule,
         // DefaultModule,
         SharedModule,
-        ThinModule
+        ThinModule,
+        MaterialModule
     ],
     exports: [LayoutComponent]
 })
