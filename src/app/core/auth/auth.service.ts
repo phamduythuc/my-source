@@ -26,6 +26,9 @@ export class AuthService {
     }
 
     signin(credentials: Account): Observable<any> {
+      if (this.signedin$) {
+        throw new Error('ban dang nhap')
+      }
         return this.http.post(evnConfig.apiUrl + '/user/login', credentials, {observe: "response"}).pipe(
             map((res: any) => {
                 this.accessToken = res?.body.token;

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../../../core/auth/auth.service";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-user',
@@ -7,9 +9,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit{
-  constructor(private router: Router) {
+  signind$!: BehaviorSubject<any>;
+
+  constructor(private router: Router, private auth: AuthService) {
   }
   ngOnInit() {
+    this.signind$ = this.auth.signedin$
+    console.log(this.signind$)
   }
   signIn() {
     this.router.navigate(['/sign-in'])

@@ -1,4 +1,4 @@
-<div class="w-[100vw] flex justify-center" *transloco="let t">
+<div class="flex justify-center" *transloco="let t">
   <div class="p-8 my-8 w-[25%] bg-stone-100 rounded-3xl shadow-lg shadow-gray-700">
     <div class="w-full flex flex-col ">
       <div class="font-semibold text-4xl mb-3">{{t ('signIn.title')}}</div>
@@ -39,7 +39,7 @@
         <a class="text-blue-400" routerLink="/forgot-password">{{t ('signIn.forgotPassword')}}</a>
       </div>
 
-        <button mat-flat-button class="fuse-mat-button-large bg-green-300" color="primary" (click)="signIn()" [disabled]="signInForm.invalid">{{t ('signIn.title')}}</button>
+        <button mat-flat-button class="fuse-mat-button-large bg-green-300" color="primary" type="submit" (click)="signIn()" [disabled]="signInForm.invalid">{{t ('signIn.title')}}</button>
         <div class="w-full flex justify-center mt-5"><span>{{t ('signIn.noAccount')}} <a class="text-blue-400 underline decoration-1" routerLink="/sign-up">{{t ('signUp.fullName')}}</a></span></div>
       </form>
     </div>

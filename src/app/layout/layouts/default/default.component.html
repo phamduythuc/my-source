@@ -12,17 +12,19 @@
                 <a routerLink="/" >My couse</a>
                 <a routerLink="/">Upload Video</a>
             </div>
-            <div class="flex items-center ml-auto">
+            <div class="flex items-center ml-auto px-3">
                 <app-search></app-search>
                 <app-languages></app-languages>
                 <app-notifications></app-notifications>
                 <app-user></app-user>
             </div>
         </div>
-        <div>
+<!--      content-->
+        <div class="w-full flex flex-col flex-auto">
+
+          <router-outlet></router-outlet>
 
 
         </div>
-        <router-outlet></router-outlet>
     </div>
 </div>

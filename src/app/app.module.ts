@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,6 +12,7 @@ import {LayoutModule} from "./layout/layout.module";
 import {LoadingInterceptor} from "../@fuse/services/loading/loading.interceptor";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LanguagesModule} from "./layout/common/languages/languages.module";
+import {ErrorGlobal} from "./core/errors/error-global";
 
 
 @NgModule({
@@ -30,6 +31,11 @@ import {LanguagesModule} from "./layout/common/languages/languages.module";
         LanguagesModule
     ],
     providers: [
+      {
+        provide: ErrorHandler,
+        useClass: ErrorGlobal,
+
+      },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: LoadingInterceptor,

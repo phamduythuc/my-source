@@ -45,7 +45,7 @@ export class BaseComponent {
           : 'bg-red-500',
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      // duration: 5000
+      duration: 3000
     });
   }
 }
