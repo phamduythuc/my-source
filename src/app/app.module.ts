@@ -13,6 +13,7 @@ import {LoadingInterceptor} from "../@fuse/services/loading/loading.interceptor"
 import {ReactiveFormsModule} from "@angular/forms";
 import {LanguagesModule} from "./layout/common/languages/languages.module";
 import {ErrorGlobal} from "./core/errors/error-global";
+import {HomeModule} from "./modules/home/home.module";
 
 
 @NgModule({
@@ -23,12 +24,12 @@ import {ErrorGlobal} from "./core/errors/error-global";
         ReactiveFormsModule,
         BrowserAnimationsModule,
         SignInModule,
-        // SharedModule,
         MaterialModule,
         LayoutModule,
         HttpClientModule,
         FuseModule,
-        LanguagesModule
+        LanguagesModule,
+      // HomeModule
     ],
     providers: [
       {

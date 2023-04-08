@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import {SliderModule} from "./slider/slider.module";
+import {SliderComponent} from "./slider/slider.component";
+import { ItemCourseComponent } from './item-course/item-course.component';
+import {MaterialModule} from "../../material/material.module";
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ItemCourseComponent,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    SliderModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }
