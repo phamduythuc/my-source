@@ -20,7 +20,8 @@ const routes: Routes = [
           {
             path: '',
             component: HomeComponent
-          }
+          },
+          { path: 'detail-course', loadChildren: () => import('./modules/detail-course/detail-course.module').then(m => m.DetailCourseModule) },
         ]
 
       },
@@ -43,6 +44,7 @@ const routes: Routes = [
       },
     ]
   },
+
 
 ];
 

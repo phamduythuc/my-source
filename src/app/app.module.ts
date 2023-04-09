@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {LanguagesModule} from "./layout/common/languages/languages.module";
 import {ErrorGlobal} from "./core/errors/error-global";
 import {HomeModule} from "./modules/home/home.module";
+import {AuthInterceptor} from "./core/auth/auth.interceptor";
 
 
 @NgModule({
@@ -35,6 +36,12 @@ import {HomeModule} from "./modules/home/home.module";
       {
         provide: ErrorHandler,
         useClass: ErrorGlobal,
+
+      },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true,
 
       },
         {

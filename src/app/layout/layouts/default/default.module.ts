@@ -8,6 +8,7 @@ import {NotificationsModule} from "../../common/notifications/notifications.modu
 import {UserModule} from "../../common/user/user.module";
 import {SearchModule} from "../../common/search/search.module";
 import {LanguagesModule} from "../../common/languages/languages.module";
+import {TranslocoModule} from "@ngneat/transloco";
 
 
 
@@ -23,7 +24,8 @@ import {LanguagesModule} from "../../common/languages/languages.module";
         NotificationsModule,
         UserModule,
         SearchModule,
-        LanguagesModule
+        LanguagesModule,
+        TranslocoModule
 
     ],
   exports: [DefaultComponent]

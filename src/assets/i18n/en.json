@@ -18,5 +18,9 @@
   },
   "home": {
     "lang": "English"
+  },
+  "test" : {
+    "my-course": "My Course",
+    "upload": "Upload Course"
   }
 }

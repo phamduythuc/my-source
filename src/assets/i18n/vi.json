@@ -18,5 +18,9 @@
   },
   "home": {
     "lang": "Tiếng Việt"
+  },
+  "test" : {
+    "my-course": "Khoá hoc của tôi",
+    "upload": "Tải lên khoá học"
   }
 }

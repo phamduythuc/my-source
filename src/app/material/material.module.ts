@@ -12,6 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatExpansionModule} from '@angular/material/expansion';
 const MATERIALMODDULES = [
   MatDialogModule,
   MatButtonModule,
@@ -24,7 +25,8 @@ const MATERIALMODDULES = [
   MatCheckboxModule,
   MatMenuModule,
   MatDividerModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatExpansionModule
 
 ];
 
