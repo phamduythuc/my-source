@@ -1,34 +1,53 @@
 import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
-import { ConfigService } from 'src/@fuse/services/config/config.service';
-import {LayoutTypes} from "../../layout.types";
-import {Overlay, OverlayRef} from "@angular/cdk/overlay";
-import {TemplatePortal} from "@angular/cdk/portal";
+// import { ConfigService } from 'src/@fuse/services/config/config.service';
+import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
+// import {toggleAnimation} from "./toggleAnimation";
+
 
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.scss']
+  styleUrls: ['./setting.component.scss'],
+  // animations: [toggleAnimation]
 })
 export class SettingComponent {
-  overlayRef! : OverlayRef;
-  @ViewChild('showNavSetting') show!
-      : TemplateRef<any>
-constructor(private configService: ConfigService, private overlay : Overlay, private viewContainerRef: ViewContainerRef) {
-}
+  // overlayRef!: OverlayRef;
+  displayItem = [
+    'Empty',
+    'Classic',
+    'Classy',
+    'Compact',
+    'Futuristic',
+    'Thin'
+  ]
+  @ViewChild('showNavSetting') showNavSetting!
+    : TemplateRef<any>
 
-  addLayoutDefault (layout: LayoutTypes) {
-    this.configService.setLayout(layout);
+  constructor(
+    // private configService: ConfigService,
+    // private overlay: Overlay,
+    public dialog: Dialog
+    ) {
   }
-  addLayoutThin (layout: LayoutTypes) {
-    this.configService.setLayout(layout);
 
-  }
+  // addLayoutDefault(layout: LayoutTypes) {
+  //   this.configService.setLayout(layout);
+  // }
+
+  // addLayoutThin(layout: LayoutTypes) {
+  //   this.configService.setLayout(layout);
+  //
+  // }
+  dialogRef: any;
   openSetting() {
-    // this.overlayRef = this.overlay.create({
-    //   hasBackdrop: true,
-    //   positionStrategy: this.overlay.position().global().centerHorizontally().left()
-    // })
-    // console.log(this.viewContainerRef)
-    // this.overlayRef.attach(new TemplatePortal(this.show, this.viewContainerRef))
+    this.dialogRef = this.dialog.open(this.showNavSetting, {
+    })
+    this.dialogRef.closed.subscribe((res: any )=> {
+      console.log('The dialog was closed');
+      // /viet code xu ly phia sau o day
+    });
+  }
+  closeDialog() {
+    this.dialogRef.close();
   }
 }

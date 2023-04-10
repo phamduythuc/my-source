@@ -17,7 +17,9 @@
     "redirecting": "You are being redirected!"
   },
   "home": {
-    "lang": "English"
+    "lang": "English",
+    "settings": "Settings",
+    "layout": "LAYOUT"
   },
   "test" : {
     "my-course": "My Course",

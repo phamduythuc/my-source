@@ -13,7 +13,7 @@ export class SearchComponent {
     @Input() appearance: SearchTypes = 'default';
     opened: boolean = false
     text: string = 'hidden'
-    reusult :any;
+    result :any;
 
     @HostBinding('class') get classList() {
         return {
@@ -22,7 +22,7 @@ export class SearchComponent {
     }
 
     ngOnInit(): void {
-        this.reusult = [
+        this.result = [
             {
             label: 'nodejs', img: ''
             },

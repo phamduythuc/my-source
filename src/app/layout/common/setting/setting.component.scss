@@ -1,0 +1,77 @@
+.templateNav {
+  top: 0;
+  right: 0;
+  animation: toggle 0.25s linear infinite;
+  animation-name: toggleOpen;
+  animation-iteration-count: 1;
+  .navSetting {
+    background-color: #4f46e5;
+    color :#ffffff;
+    padding: 24px 16px;
+    right: 0;
+  }
+}
+.body-custom {
+  padding: 24px 16px;
+  .layout-custom {
+    .items{
+      .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        .layout-item {
+          margin: 12px;
+          background-color: #f8fafc;
+          border: 2px solid #e2e8f0;
+          border-radius: 6px;
+          width: 100px;
+          height: 100px;
+        }
+        .layout-title {
+
+        }
+      }
+    }
+    .item:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+//animation
+.spin {
+  animation: spin 4s linear infinite;
+}
+.toggleClose {
+  animation: toggleClose linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes toggleOpen {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}@keyframes toggleClose {
+   from {
+     transform: translateX(0%);
+     opacity: 1;
+
+   }
+   to {
+     transform: translateX(100%);
+     opacity: 0;
+   }
+ }

@@ -8,7 +8,7 @@
             <input matInput class="w-full h-full px-16 outline-none" type="text" placeholder="Search"  [matAutocomplete]="auto" >
 
             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                <mat-option *ngFor="let option of reusult" [value]="option.label">
+                <mat-option *ngFor="let option of result" [value]="option.label">
                     {{option.label}}
                 </mat-option>
             </mat-autocomplete>
