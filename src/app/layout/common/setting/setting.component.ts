@@ -24,11 +24,14 @@ constructor(private configService: ConfigService, private overlay : Overlay, pri
 
   }
   openSetting() {
-    // this.overlayRef = this.overlay.create({
-    //   hasBackdrop: true,
-    //   positionStrategy: this.overlay.position().global().centerHorizontally().left()
-    // })
-    // console.log(this.viewContainerRef)
-    // this.overlayRef.attach(new TemplatePortal(this.show, this.viewContainerRef))
+    this.overlayRef = this.overlay.create({
+      hasBackdrop: true,
+      positionStrategy: this.overlay.position().global().centerHorizontally().left()
+    })
+    console.log(this.viewContainerRef)
+    this.overlayRef.attach(new TemplatePortal(this.show, this.viewContainerRef))
+    this.overlayRef.backdropClick().subscribe(() => {
+      this.overlayRef.detach();
+    })
   }
 }

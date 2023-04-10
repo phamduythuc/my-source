@@ -1,5 +1,5 @@
-<div>
-  <div class="w-full flex flex-col">
+<div class="w-full relative">
+  <div class="w-[60%] flex flex-col">
     <div>
 
       <h2>Nodejs Express Moongodb</h2>
@@ -33,7 +33,8 @@
       </h3>
         <div>
           <mat-accordion>
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   1. Bắt đầu
@@ -51,13 +52,27 @@
                  2. Set up môi trường
                 </mat-panel-title>
                 <mat-panel-description>
-                  Currently I am {{panelOpenState ? 'open' : 'closed'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <p>I'm visible because I am open</p>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
+    </div>
+  </div>
+  <div class="w-fit absolute top-10 right-20 flex flex-col p-5 shadow-md shadow-gray-600 rounded-xl">
+    <div class="w-[300px] h-140px">
+      <img class="w-full" src="https://blog.lisogorsky.ru/img/nodejs_img.jpg" alt="">
+    </div>
+    <div class="w-full mt-4">
+      <h4>Free</h4>
+      <button class="w-full" mat-raised-button color="primary">Học ngay</button>
+      <div class="flex flex-col my-4">
+        <p>160 bài học</p>
+        <p>35 hour video</p>
+        <p>Học mọi múc mọi nơi</p>
+      </div>
+
     </div>
   </div>
 </div>

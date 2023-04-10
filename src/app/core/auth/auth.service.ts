@@ -26,8 +26,9 @@ export class AuthService {
     }
 
     signin(credentials: Account): Observable<any> {
-      if (this.signedin$) {
-        throw new Error('ban dang nhap')
+        console.log(this.signedin$)
+      if (this.signedin$.value) {
+        throw new Error('Bạn đang đăng nhập')
       }
         return this.http.post(evnConfig.apiUrl + '/user/login', credentials, {observe: "response"}).pipe(
             map((res: any) => {

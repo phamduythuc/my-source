@@ -1,6 +1,8 @@
 <div class="fixed flex items-center justify-center right-0 top-1/2 translate-y-[-1/2]  flex p-3 bg-amber-400 rounded-md" (click)="openSetting()">
   <mat-icon>settings</mat-icon>
 </div>
+<button mat-raised-button (click)="addLayoutDefault('default')">default</button>
+<button mat-raised-button (click)="addLayoutThin('thin')">Thin</button>
 
 <ng-template #showNavSetting>
   <div class="fixed w-[20%] h-full bg-amber-200 flex flex-col ">
@@ -11,3 +13,4 @@
     </div>
   </div>
 </ng-template>
+
