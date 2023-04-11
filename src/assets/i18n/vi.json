@@ -19,7 +19,9 @@
   "home": {
     "lang": "Tiếng Việt",
     "settings": "CÀI ĐẶT",
-    "layout": "BỐ CỤC"
+    "layout": "BỐ CỤC",
+    "scheme": "CHẾ ĐỘ",
+    "theme": "GIAO DIỆN"
   },
   "test" : {
     "my-course": "Khoá hoc của tôi",

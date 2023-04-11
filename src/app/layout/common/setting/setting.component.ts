@@ -20,6 +20,19 @@ export class SettingComponent {
     'Futuristic',
     'Thin'
   ]
+  schemeOption = [
+    {name: 'Auto', icon: "bolt"},
+    {name: 'Light', icon: "sunny"},
+    {name: 'Dark', icon: "cloudy"}
+  ];
+  themeOption = [
+    {name: 'Default', color: "#4F46E5"},
+    // {name: 'Brand', color: "#2196F3"},
+    // {name: 'Teal', color: "#0D94E5"},
+    {name: 'Rose', color: "#F43F5E"},
+    {name: 'Purple', color: "#9333EA"},
+    {name: 'Amber', color: "#F59E0B"},
+  ];
   @ViewChild('showNavSetting') showNavSetting!
     : TemplateRef<any>
 
