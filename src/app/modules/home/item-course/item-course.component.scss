@@ -1,0 +1,27 @@
+.item-ctm {
+  opacity: 0.6;
+}
+.item-ctm:hover {
+  -webkit-box-shadow: 1px 5px 10px 3px rgba(0,0,0,0.5);
+  -moz-box-shadow: 1px 5px 10px 3px rgba(0,0,0,0.5);
+  box-shadow: 1px 5px 10px 3px rgba(0,0,0,0.5);
+  cursor: pointer;
+  opacity: 1;
+  //transform: translateY(3px);
+  transition: all 0.3s ease-in-out;
+}
+.item-ctm:active {
+  transform: translateY(1px); /* Di chuyển xuống 1px */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.detail-container {
+  .title {
+    margin-bottom: 0;
+  }
+  .author {
+    margin: 0;
+  }
+  .margin-b-1 {
+    margin-bottom: 4px !important;
+  }
+}

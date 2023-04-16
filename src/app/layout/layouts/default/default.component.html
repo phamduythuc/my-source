@@ -11,7 +11,7 @@
             <div class=" flex items-center ml-auto space-x-4">
                 <a routerLink="/" >{{"test.my-course" | transloco}}</a>
                 <a routerLink="/">{{'test.upload' | transloco}}</a>
-                <a routerLink="/detail-course">video</a>
+                <a routerLink="/detail-course">Video</a>
             </div>
             <div class="flex items-center ml-auto px-3">
                 <app-search></app-search>
@@ -22,10 +22,34 @@
         </div>
 <!--      content-->
         <div class="w-full flex flex-col flex-auto px-6 py-6">
-
           <router-outlet></router-outlet>
-
-
         </div>
+      <footer class="flex flex-col w-full items-center justify-center mt-8 bg-black text-[#F9F9FA]">
+        <div class="w-2/3 flex justify-center py-10 grid grid-cols-4">
+          <div class="grid justify-center items-start " *ngFor = "let i of columnDetailPage">
+            <div class="w-full text-xl">{{i.title}}</div>
+            <div class="my-4">
+              <div *ngIf = "i.title === 'ỦNG HỘ CHÚNG TÔI'" class="flex cursor-pointer">
+                <div >
+                  <mat-icon svgIcon="">facebook</mat-icon>
+                  <mat-icon svgIcon="">youtube</mat-icon>
+                  <mat-icon svgIcon="">github</mat-icon>
+                  <mat-icon svgIcon="">instagram</mat-icon>
+                </div>
+              </div>
+              <div *ngIf = "i.title !== 'ỦNG HỘ CHÚNG TÔI'">
+                <div *ngFor = "let k of i.data" class="text-[#9EA7AF]">
+                  <div class="cursor-pointer text-xs my-0.5">{{k}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+          </div>
+         </div>
+        <div class="text-xs text-[#9EA7AF]">
+          <p>© 2018 - 2023 FullCource. Nền tảng học lập trình hàng đầu Việt Nam</p>
+        </div>
+      </footer>
     </div>
 </div>

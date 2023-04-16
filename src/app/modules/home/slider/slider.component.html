@@ -1,12 +1,12 @@
 
-<div class="w-1/2 h-1/4 mx-auto overflow-hidden">
+<div class="w-full mx-auto overflow-hidden">
 
   <ngx-slick-carousel class="carousel"
                       #slickModal="slick-carousel"
                       [config]="slideConfig"
   >
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <img class="w-full h-full object-cover" src="{{ slide.img }}" alt="" >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide" >
+      <img class="w-full h-full object-cover" src="{{ slide.img }}" alt="" style="border-radius: 18px" >
     </div>
   </ngx-slick-carousel>
 </div>

@@ -10,7 +10,38 @@ import { Router } from '@angular/router';
 })
 export class DefaultComponent implements OnInit {
     signin$: BehaviorSubject<boolean>;
-
+    columnDetailPage =[
+      {
+        title: "TÀI NGUYÊN",
+        data: [
+          "phone: +8412345678",
+          "address: Số 26 Dương Đình Nghệ, Phường Yên Hòa, Quận Cầu Giấy, TP. Hà Nội",
+          "email: FullCourse@gmail.com",
+        ]
+      },
+      {
+        title: "SẢN PHẨM"
+      },
+      {
+        title: "VỀ CHÚNG TÔI",
+        data: [
+          "Giới thiệu",
+          "Liên hệ",
+          "Điều khoản",
+          "Bảo mật",
+          "Cơ hội việc làm"
+        ]
+      },
+      // {
+      //   title: "SẢN PHẨM"
+      // },
+      {
+        title: "ỦNG HỘ CHÚNG TÔI",
+        // data: [
+        //   'facebook', 'github', 'youtube'
+        // ]
+      }
+      ]
     constructor(private auth: AuthService,private router: Router) {
         this.signin$ = this.auth.signedin$
 

@@ -12,10 +12,10 @@ export class SliderComponent {
     nextArrow: '<button  type="button" style="background-color: #ca8a04" class="slick-next">Next</button>',
   };
   slides = [
-    {img: "http://placehold.it/350x150/000000"},
-    {img: "http://placehold.it/350x150/111111"},
-    {img: "http://placehold.it/350x150/333333"},
-    {img: "http://placehold.it/350x150/666666"}
+    {img: "http://placehold.it/350x70/000000"},
+    {img: "http://placehold.it/350x70/111111"},
+    {img: "http://placehold.it/350x70/333333"},
+    {img: "http://placehold.it/350x70/666666"}
   ];
 
   slickInit($event: any) {

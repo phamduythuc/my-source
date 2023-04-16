@@ -1,12 +1,16 @@
-<ng-container *ngFor="let course of courses">
-
-  <div class="bg-white p-4 w-[320px] max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700">
+<ng-container *ngFor="let course of courseData" class="shadow-custom">
+  <div class="bg-white flex-1 p-4 w-full max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700 item-ctm">
     <div class="w-full h-[140px] bg-gray-200 mb-2">
-          <img class="w-full" [src]="course.image" alt="">
+<!--          <img class="w-full" [src]="course.image" alt="">-->
     </div>
-    <div class="flex flex-col">
-      <p class="text-2xl font-semibold">{{course.title}}</p>
-      <p>jonas</p>
+    <div class="flex flex-col detail-container">
+      <p class="text-2xl font-semibold title">{{course.title}}</p>
+      <p class="author">{{course.author}}</p>
+      <div class="mt-5">
+        <p class="margin-b-1 text-[#B86A72]">{{course.pointEvaluation}}</p>
+        <p class="margin-b-1">{{course.view}}</p>
+        <div>{{course.price}}</div>
+      </div>
 
     </div>
   </div>
