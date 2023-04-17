@@ -22,6 +22,7 @@ const routes: Routes = [
             component: HomeComponent
           },
           { path: 'detail-course', loadChildren: () => import('./modules/detail-course/detail-course.module').then(m => m.DetailCourseModule) },
+          { path: 'learn', loadChildren: () => import('./modules/learn-course/learn-course.module').then(m => m.LearnCourseModule) },
         ]
 
       },
@@ -44,6 +45,7 @@ const routes: Routes = [
       },
     ]
   },
+
 
 
 ];

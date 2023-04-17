@@ -7,8 +7,7 @@ import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.scss'],
-  // animations: [toggleAnimation]
+  styleUrls: ['./setting.component.scss']
 })
 export class SettingComponent {
   // overlayRef!: OverlayRef;

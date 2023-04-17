@@ -3,6 +3,8 @@
   <mat-icon class="spin text-gray-50">settings</mat-icon>
 
 </div>
+<button mat-raised-button (click)="addLayoutDefault('default')">default</button>
+<button mat-raised-button (click)="addLayoutThin('thin')">Thin</button>
 
 <ng-template #showNavSetting *transloco="let t">
   <div class="templateNav fixed w-[420px] h-full bg-white flex flex-col">
