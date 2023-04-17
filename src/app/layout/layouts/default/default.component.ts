@@ -49,12 +49,9 @@ export class DefaultComponent implements OnInit {
 
     ngOnInit() {
         this.auth.checkAuth().subscribe(() =>{})
-        console.log(this.signin$);
     }
     logout(): void {
             this.auth.signout().subscribe();
                 // this.router.navigateByUrl('/')
-
-        console.log(this.signin$);
         }
 }

@@ -15,7 +15,6 @@ export class UserComponent implements OnInit{
   }
   ngOnInit() {
     this.signind$ = this.auth.signedin$
-    console.log(this.signind$)
   }
   signIn() {
     this.router.navigate(['/sign-in'])
