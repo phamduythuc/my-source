@@ -4,8 +4,8 @@
         <!--header-->
         <div class="relative flex items-center w-full h-16 border-b-2">
             <ng-container>
-                <div class="flex items-center mx-2">
-                    <img class="w-20" src="../../assets/image/logo/logo.png" alt="logo">
+                <div class="flex items-center mx-2 cursor-pointer" (click)="redirectHome()">
+                    <img class="w-[100px]" src="../../assets/image/logo/mylogo.jpg" alt="logo">
                 </div>
             </ng-container>
             <div class=" flex items-center ml-auto space-x-4">
@@ -29,15 +29,16 @@
           <div class="grid justify-center items-start " *ngFor = "let i of columnDetailPage">
             <div class="w-full text-xl">{{i.title}}</div>
             <div class="my-4">
-              <div *ngIf = "i.title === 'ỦNG HỘ CHÚNG TÔI'" class="flex cursor-pointer">
-                <div >
-                  <mat-icon svgIcon="">facebook</mat-icon>
-                  <mat-icon svgIcon="">youtube</mat-icon>
-                  <mat-icon svgIcon="">github</mat-icon>
-                  <mat-icon svgIcon="">instagram</mat-icon>
+              <div *ngIf = "i.title === 'LIÊN HỆ VỚI CHÚNG TÔI'" class="flex cursor-pointer">
+                <div class="flex items-start">
+                  <img class="w-8 h-8 mr-2 rounded" src="assets/image/logo/facebook-svgrepo-com.svg">
+                  <img class="w-8 h-8 mr-2 rounded" src="assets/image/logo/skype-svgrepo-com.svg">
+                  <img class="w-auto h-8 mr-2 rounded" src="assets/image/logo/twitter-svgrepo-com.svg">
+                  <img class="w-auto h-8 mr-2 rounded" src="assets/image/logo/youtube-svgrepo-com.svg">
+                  <img class="w-auto h-8 mr-2 rounded" src="assets/image/logo/linkedin-svgrepo-com.svg">
                 </div>
               </div>
-              <div *ngIf = "i.title !== 'ỦNG HỘ CHÚNG TÔI'">
+              <div *ngIf = "i.title !== 'LIÊN HỆ VỚI CHÚNG TÔI'">
                 <div *ngFor = "let k of i.data" class="text-[#9EA7AF]">
                   <div class="cursor-pointer text-xs my-0.5">{{k}}</div>
                 </div>

@@ -14,9 +14,9 @@ export class DefaultComponent implements OnInit {
       {
         title: "TÀI NGUYÊN",
         data: [
-          "phone: +8412345678",
-          "address: Số 26 Dương Đình Nghệ, Phường Yên Hòa, Quận Cầu Giấy, TP. Hà Nội",
-          "email: FullCourse@gmail.com",
+          "Phone: +8412345678",
+          "Address: Số 26 Dương Đình Nghệ, Phường Yên Hòa, Quận Cầu Giấy, TP. Hà Nội",
+          "Email: FullCourse@gmail.com",
         ]
       },
       {
@@ -36,10 +36,7 @@ export class DefaultComponent implements OnInit {
       //   title: "SẢN PHẨM"
       // },
       {
-        title: "ỦNG HỘ CHÚNG TÔI",
-        // data: [
-        //   'facebook', 'github', 'youtube'
-        // ]
+        title: "LIÊN HỆ VỚI CHÚNG TÔI",
       }
       ]
     constructor(private auth: AuthService,private router: Router) {
@@ -53,5 +50,8 @@ export class DefaultComponent implements OnInit {
     logout(): void {
             this.auth.signout().subscribe();
                 // this.router.navigateByUrl('/')
-        }
+    }
+    redirectHome() {
+      this.router.navigateByUrl('');
+    }
 }

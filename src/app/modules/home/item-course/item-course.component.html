@@ -1,5 +1,5 @@
 <ng-container *ngFor="let course of courseData" class="shadow-custom">
-  <div class="bg-white flex-1 p-4 w-full max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700 item-ctm">
+  <div class="bg-white flex-1 p-4 w-full max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700 item-ctm position: relative">
     <div class="w-full h-[140px] bg-gray-200 mb-2">
 <!--          <img class="w-full" [src]="course.image" alt="">-->
     </div>
@@ -7,12 +7,36 @@
       <p class="text-2xl font-semibold title">{{course.title}}</p>
       <p class="author">{{course.author}}</p>
       <div class="mt-5">
-        <p class="margin-b-1 text-[#B86A72]">{{course.pointEvaluation}}</p>
-        <p class="margin-b-1">{{course.view}}</p>
-        <div>{{course.price}}</div>
-      </div>
+       <div class="flex items-center">
+<!--         <p class="margin-b-0 text-[#B86A72] pointStar">{{course.pointEvaluation}}</p>-->
+         <mat-icon class="">star</mat-icon>
+         <mat-icon class="">grade</mat-icon>
+         <mat-icon class="">grade</mat-icon>
+         <mat-icon class="">grade</mat-icon>
+         <mat-icon class="">grade</mat-icon>
+       </div>
 
+        <div class="flex items-center mb-4">
+          <mat-icon class="">groups</mat-icon>
+          <p class="view">{{course.view}}</p>
+        </div>
+        <div class="flex justify-center">
+          <div class="pr-2 text-[24px] text-[#F05123]">{{course.priceDiscount}}</div>
+          <div class="pr-2 text-[12px] text-decoration-line: line-through">{{course.price}}</div>
+        </div>
+      </div>
     </div>
-  </div>
+    <div *ngIf="course.discount">
+      <div class="position: absolute regular-3 right-3"></div>
+      <div class="position: absolute top-0 right-3 flex flex-col items-center justify-center"
+           style="background-color: rgba(248, 210, 52 ,0.7); width: 50px; height: 40px; padding:4px" >
+        <div class="mt-1 text-[18px] text-[#ED5B2D]">{{course.discount}}%</div>
+        <div class="text-[10px]">Discount</div>
+        <div class="position: absolute regular-1"></div>
+        <div class="position: absolute regular-2"></div>
+      </div>
+    </div>
+    </div>
+
 </ng-container>
 
