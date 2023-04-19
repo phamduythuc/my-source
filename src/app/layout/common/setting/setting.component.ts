@@ -1,37 +1,79 @@
 import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
-import { ConfigService } from 'src/@fuse/services/config/config.service';
+// import { ConfigService } from 'src/@fuse/services/config/config.service';
+import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
+import {ConfigService} from "../../../../@fuse/services/config/config.service";
 import {LayoutTypes} from "../../layout.types";
-import {Overlay, OverlayRef} from "@angular/cdk/overlay";
-import {TemplatePortal} from "@angular/cdk/portal";
+
+// import {toggleAnimation} from "./toggleAnimation";
+
 
 @Component({
-  selector: 'app-setting',
-  templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.scss']
+    selector: 'app-setting',
+    templateUrl: './setting.component.html',
+    styleUrls: ['./setting.component.scss'],
+    // animations: [toggleAnimation]
 })
 export class SettingComponent {
-  overlayRef! : OverlayRef;
-  @ViewChild('showNavSetting') show!
-      : TemplateRef<any>
-constructor(private configService: ConfigService, private overlay : Overlay, private viewContainerRef: ViewContainerRef) {
-}
+    // overlayRef!: OverlayRef;
+    displayItem = [
+        'Empty',
+        'Classic',
+        'Classy',
+        'Compact',
+        'Futuristic',
+        'Thin'
+    ]
+    schemeOption = [
+        {name: 'Auto', icon: "bolt"},
+        {name: 'Light', icon: "sunny"},
+        {name: 'Dark', icon: "cloudy"}
+    ];
+    themeOption = [
+        {name: 'Default', color: "#4F46E5"},
+        // {name: 'Brand', color: "#2196F3"},
+        // {name: 'Teal', color: "#0D94E5"},
+        {name: 'Rose', color: "#F43F5E"},
+        {name: 'Purple', color: "#9333EA"},
+        {name: 'Amber', color: "#F59E0B"},
+    ];
+    @ViewChild('showNavSetting') showNavSetting!
+        : TemplateRef<any>
 
-  addLayoutDefault (layout: LayoutTypes) {
-    this.configService.setLayout(layout);
-  }
-  addLayoutThin (layout: LayoutTypes) {
-    this.configService.setLayout(layout);
+    constructor(
+        private configService: ConfigService,
+        // private overlay: Overlay,
+        public dialog: Dialog
+    ) {
+    }
 
-  }
-  openSetting() {
-    this.overlayRef = this.overlay.create({
-      hasBackdrop: true,
-      positionStrategy: this.overlay.position().global().centerHorizontally().left()
-    })
-    console.log(this.viewContainerRef)
-    this.overlayRef.attach(new TemplatePortal(this.show, this.viewContainerRef))
-    this.overlayRef.backdropClick().subscribe(() => {
-      this.overlayRef.detach();
-    })
-  }
+    setLayout(layout: LayoutTypes) {
+        this.configService.setLayout(layout);
+    }
+
+    // addLayoutThin(layout: LayoutTypes) {
+    //   this.configService.setLayout(layout);
+    //
+    // }
+    dialogRef: any;
+
+    openSetting() {
+        this.dialogRef = this.dialog.open(this.showNavSetting, {})
+        this.dialogRef.closed.subscribe((res: any) => {
+            console.log('The dialog was closed');
+            // /viet code xu ly phia sau o day
+        });
+    }
+
+    closeDialog() {
+        this.dialogRef.close();
+
+
+        // this.configService.dowload(body, params).subscribe((res: any) => {
+        // const  blob = new Blob([res], {type: 'application/json'})
+        //     const dowload = window.URL.createObjectURL(res)
+        //     let link = document.createElement('a')
+        //     link.href = dowload
+        //     link.download = 'file_name.csv'
+        // })
+    }
 }

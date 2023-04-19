@@ -15,6 +15,7 @@ export class ItemCourseComponent implements OnInit {
   ngOnInit() {
     console.log('courses')
     this.getAllCourse();
+
   }
 
   getAllCourse(): void {
@@ -22,6 +23,9 @@ export class ItemCourseComponent implements OnInit {
       console.log(res)
       this.courses = res.body.courses
     })
+  }
+  courseDetail(course: any): void {
+    console.log(course)
   }
 
 }

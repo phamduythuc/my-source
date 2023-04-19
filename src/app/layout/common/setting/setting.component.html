@@ -1,16 +1,147 @@
-<div class="fixed flex items-center justify-center right-0 top-1/2 translate-y-[-1/2]  flex p-3 bg-amber-400 rounded-md" (click)="openSetting()">
-  <mat-icon>settings</mat-icon>
-</div>
-<button mat-raised-button (click)="addLayoutDefault('default')">default</button>
-<button mat-raised-button (click)="addLayoutThin('thin')">Thin</button>
+<div class="fixed animation-custom flex items-center justify-center right-0 top-1/3 bg-[#DC2626E6] w-[40px] h-[40px] rounded-l-lg shadow-#E2E8F0-500/50"
+     (click)="openSetting()">
+  <mat-icon class="spin text-gray-50">settings</mat-icon>
 
-<ng-template #showNavSetting>
-  <div class="fixed w-[20%] h-full bg-amber-200 flex flex-col ">
-<!--    header-->
-    <div class="flex items-center">
-      <span>Setting</span>
-      <mat-icon>settings</mat-icon>
-    </div>
+</div>
+<!--<button mat-raised-button (click)="addLayoutDefault('default')">default</button>-->
+<!--<button mat-raised-button (click)="addLayoutThin('thin')">Thin</button>-->
+
+<ng-template #showNavSetting *transloco="let t">
+  <div class="templateNav fixed w-[420px] h-full bg-white flex flex-col">
+    <header class="flex justify-between items-center navSetting ">
+        <div class="flex items-center">
+          <mat-icon class="spin">settings</mat-icon>
+          <span class="pl-3 text-xl">{{t ('home.settings')}}</span>
+        </div>
+        <mat-icon class="cursor-pointer hover:opacity-50" (click)="closeDialog()">close</mat-icon>
+    </header>
+    <body class="body-custom">
+      <div class="theme-custom">
+        <div class="text-md text-secondary my-3">{{t ('home.theme')}}</div>
+        <div class="grid grid-cols-3">
+          <div class="theme-button bg-[#F2F4F6] rounded-full py-3 px-6 mb-3 mx-3 flex items-center justify-center cursor-pointer" *ngFor='let i of themeOption'>
+            <div class="w-[8px] h-[8px] rounded-full mr-0.5" [style.background-color]="i.color"></div>{{i.name}}
+          </div>
+        </div>
+      </div>
+      <hr class="my-8">
+      <div class="scheme-custom mb-3">
+        <div class="text-md text-secondary my-3">{{t ('home.scheme')}}</div>
+        <div class="flex justify-between">
+          <div class="scheme-button bg-[#F2F4F6] rounded-full py-3 px-6 flex items-center justify-center cursor-pointer" *ngFor='let i of schemeOption'>
+            <mat-icon class="mr-1">{{i.icon}}</mat-icon>
+            <div class="">{{i.name}}</div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-8">
+      <div class="layout-custom">
+        <div class="text-md text-secondary">{{t ('home.layout')}}</div>
+        <div class="items grid grid-cols-3">
+          <div class="item" *ngFor = 'let item of displayItem'>
+            <div  class="layout-item">
+<!--              layout/ Thin -->
+              <div *ngIf="item === 'Thin'" (click)="setLayout('thin')" class="flex h-full">
+                <div class="bg-[#F1F5F9] w-[20%] h-full flex items-center flex-col" style="border-right:1px solid #E2E8F0">
+                  <div class="flex flex-col items-center">
+                    <div class="rounded-full bg-[#E2E8F0] w-[10px] h-[10px] mt-[10px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#E2E8F0] w-[8px] h-[8px] mt-[6px] mb-[3px]"></div>
+                    <div class="rounded-full bg-[#E2E8F0] w-[8px] h-[8px] mt-[3px] mb-[3px]" ></div>
+                    <div class="rounded-full bg-[#E2E8F0] w-[8px] h-[8px] mt-[3px] mb-[3px]" ></div>
+                    <div class="rounded-full bg-[#E2E8F0] w-[8px] h-[8px] mt-[3px] mb-[3px]" ></div>
+                    <div class="rounded-full bg-[#E2E8F0] w-[8px] h-[8px] mt-[3px] mb-[3px]" ></div>
+                  </div>
+                </div>
+                <div class="flex justify-end items-center bg-[#F1F5F9] w-[80%] h-[20%] " style="border-bottom: 1px solid #E2E8F0">
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]"></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                </div>
+              </div>
+
+<!--              layout/Classic-->
+              <div *ngIf="item === 'Classic'" class="flex h-full">
+                <div class="bg-[#F1F5F9] w-[33.333%] h-full flex items-center flex-col" style="border-right:1px solid #E2E8F0">
+                  <div class="flex flex-col items-center">
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[18px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[2px] mb-[2px]"></div>
+                  </div>
+                </div>
+                <div class="flex justify-end items-center bg-[#F1F5F9] w-[80%] h-[20%] " style="border-bottom: 1px solid #E2E8F0">
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]"></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                </div>
+              </div>
+
+              <!--              layout/Classy-->
+              <div *ngIf="item === 'Classy'" class="flex h-full">
+                <div class="bg-[#F1F5F9] w-[33.333%] h-full flex items-center flex-col" style="border-right:1px solid #E2E8F0">
+                  <div class="flex flex-col items-center">
+                    <div class="flex mt-[6px] justify-between">
+                      <div class="rounded-full bg-[#CBD5E1] w-[6px] h-[6px] mr-[4px] ml-[2px]"></div>
+                      <div class="flex justify-end ml-[6px]">
+                        <div class="rounded-full bg-[#CBD5E1] w-[6px] h-[6px] mr-[4px]" ></div>
+                        <div class="rounded-full bg-[#CBD5E1] w-[6px] h-[6px] mr-[4px]" ></div>
+                      </div>
+                    </div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[20px] h-[20px] mt-[16px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[30px] h-[5px] mt-[8px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[30px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[30px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[30px] h-[5px] mt-[2px] mb-[2px]"></div>
+                  </div>
+                </div>
+                <div class="flex justify-end items-center bg-[#F1F5F9] w-[80%] h-[20%] " style="border-bottom: 1px solid #E2E8F0">
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]"></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                </div>
+              </div>
+
+<!--              Compact-->
+              <div *ngIf="item === 'Compact'" class="flex h-full">
+                <div class="bg-[#F1F5F9] w-[25%] h-full flex items-center flex-col" style="border-right:1px solid #E2E8F0">
+                  <div class="flex flex-col items-center">
+                    <div class="rounded-sm bg-[#CBD5E1] w-[15px] h-[15px] mt-[12px] mb-[2px]"></div>
+                    <div class="rounded-sm bg-[#CBD5E1] w-[15px] h-[12px] mt-[8px] mb-[2px]"></div>
+                    <div class="rounded-sm bg-[#CBD5E1] w-[15px] h-[12px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-sm bg-[#CBD5E1] w-[15px] h-[12px] mt-[2px] mb-[2px]"></div>
+                  </div>
+                </div>
+                <div class="flex justify-end items-center bg-[#F1F5F9] w-[80%] h-[20%] " style="border-bottom: 1px solid #E2E8F0">
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]"></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                </div>
+              </div>
+
+<!--              Futuristic-->
+              <div *ngIf="item === 'Futuristic'" class="flex h-full">
+                <div class="bg-[#F1F5F9] w-[33.33%] h-full flex items-center flex-col" style="border-right:1px solid #E2E8F0">
+                  <div class="flex flex-col items-center">
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[18px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[2px] mb-[2px]"></div>
+                    <div class="rounded-full bg-[#CBD5E1] w-[25px] h-[5px] mt-[40px] mb-[2px]"></div>
+                  </div>
+                </div>
+                <div class="flex justify-end items-center bg-[#F1F5F9] w-[80%] h-[20%] " style="border-bottom: 1px solid #E2E8F0">
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]"></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                  <div class="rounded-full bg-[#E2E8F0] w-[6px] h-[6px] mr-[4px]" ></div>
+                </div>
+              </div>
+            </div>
+            <div class="layout-title">{{item}}</div>
+          </div>
+        </div>
+      </div>
+    </body>
   </div>
+
 </ng-template>
 

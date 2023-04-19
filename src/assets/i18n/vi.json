@@ -17,7 +17,11 @@
     "redirecting": "Bạn đang được chuyển hướng!"
   },
   "home": {
-    "lang": "Tiếng Việt"
+    "lang": "Tiếng Việt",
+    "settings": "CÀI ĐẶT",
+    "layout": "BỐ CỤC",
+    "scheme": "CHẾ ĐỘ",
+    "theme": "GIAO DIỆN"
   },
   "test" : {
     "my-course": "Khoá hoc của tôi",

@@ -1,6 +1,6 @@
 <ng-container *ngFor="let course of courses">
 
-  <div class="bg-white p-4 w-[320px] max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700">
+  <div class="bg-white p-4 w-[320px] max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700 cursor-pointer" (click)="courseDetail(course)">
     <div class="w-full h-[140px] bg-gray-200 mb-2">
           <img class="w-full" [src]="course.image" alt="">
     </div>

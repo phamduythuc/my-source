@@ -14,4 +14,8 @@ export class HomeService {
   getCourses(): Observable<any> {
     return this.http.get('http://localhost:3000/api/v1/course', {observe: 'response'})
   }
+  dowload(body: any, param: any): Observable<any> {
+    return this.http.post('http://localhost:3000/api//recomms/export', body, {responseType: 'blob' as 'json' ,params: param})
+  }
+
 }

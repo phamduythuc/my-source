@@ -17,7 +17,11 @@
     "redirecting": "You are being redirected!"
   },
   "home": {
-    "lang": "English"
+    "lang": "English",
+    "settings": "Settings",
+    "layout": "LAYOUT",
+    "scheme": "SCHEME",
+    "theme": "THEME"
   },
   "test" : {
     "my-course": "My Course",
