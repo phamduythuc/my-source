@@ -27,7 +27,8 @@ export class AuthService {
 
     signin(credentials: Account): Observable<any> {
         console.log(this.signedin$)
-      if (this.signedin$.value) {
+      if (this.accessToken
+      ) {
         throw new Error('Bạn đang đăng nhập')
       }
         return this.http.post(evnConfig.apiUrl + '/user/login', credentials, {observe: "response"}).pipe(

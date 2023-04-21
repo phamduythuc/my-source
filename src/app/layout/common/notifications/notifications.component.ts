@@ -16,10 +16,7 @@ export class NotificationsComponent {
   constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef, private el: ElementRef) {
   }
 
-  ngOnInit(): void {
-
-    console.log(this.btnNotification)
-  }
+  ngOnInit(): void {}
 
   openNotification() {
     console.log(this.el)

@@ -12,10 +12,12 @@ export class HomeService {
   }
 
   getCourses(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/v1/course', {observe: 'response'})
+    return this.http.get(`${evnConfig.apiUrl}/course`, {observe: 'response'})
   }
-  dowload(body: any, param: any): Observable<any> {
-    return this.http.post('http://localhost:3000/api//recomms/export', body, {responseType: 'blob' as 'json' ,params: param})
+  getDetailCourse(courseId: any): Observable<any> {
+    return this.http.get(`${evnConfig.apiUrl}/course/${courseId}`, {observe: 'response'})
   }
-
+  getDataFakeAPI(): Observable<any> {
+    return this.http.get('https://643c2b28447794557368e33a.mockapi.io/courseApi/allCource', {observe: 'response'})
+  }
 }

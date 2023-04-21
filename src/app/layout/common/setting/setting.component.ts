@@ -1,8 +1,11 @@
-import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, TemplateRef, ViewChild, ViewContainerRef, OnInit} from '@angular/core';
 // import { ConfigService } from 'src/@fuse/services/config/config.service';
 import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
+import {Overlay, OverlayRef} from "@angular/cdk/overlay";
 import {ConfigService} from "../../../../@fuse/services/config/config.service";
+import {TemplatePortal} from "@angular/cdk/portal";
 import {LayoutTypes} from "../../layout.types";
+import {BehaviorSubject} from "rxjs";
 
 // import {toggleAnimation} from "./toggleAnimation";
 
@@ -10,17 +13,16 @@ import {LayoutTypes} from "../../layout.types";
 @Component({
     selector: 'app-setting',
     templateUrl: './setting.component.html',
-    styleUrls: ['./setting.component.scss'],
-    // animations: [toggleAnimation]
+    styleUrls: ['./setting.component.scss']
 })
-export class SettingComponent {
+export class SettingComponent implements  OnInit {
     // overlayRef!: OverlayRef;
     displayItem = [
-        'Empty',
-        'Classic',
-        'Classy',
-        'Compact',
-        'Futuristic',
+        'Default',
+        // 'Classic',
+        // 'Classy',
+        // 'Compact',
+        // 'Futuristic',
         'Thin'
     ]
     schemeOption = [
@@ -38,42 +40,43 @@ export class SettingComponent {
     ];
     @ViewChild('showNavSetting') showNavSetting!
         : TemplateRef<any>
+    overlayRef!: OverlayRef
 
+    layout: LayoutTypes = "default"
     constructor(
         private configService: ConfigService,
-        // private overlay: Overlay,
-        public dialog: Dialog
+        private overlay: Overlay,
+        private viewContainerRef: ViewContainerRef
     ) {
     }
 
-    setLayout(layout: LayoutTypes) {
-        this.configService.setLayout(layout);
+    ngOnInit() {
+         this.configService.layout$.subscribe(result => {
+             this.layout = result
+         })
+
     }
 
-    // addLayoutThin(layout: LayoutTypes) {
-    //   this.configService.setLayout(layout);
-    //
-    // }
+    setLayout(layout: LayoutTypes) {
+      this.configService.setLayout(layout);
+
+    }
     dialogRef: any;
 
     openSetting() {
-        this.dialogRef = this.dialog.open(this.showNavSetting, {})
-        this.dialogRef.closed.subscribe((res: any) => {
-            console.log('The dialog was closed');
-            // /viet code xu ly phia sau o day
-        });
+
+        this.overlayRef = this.overlay.create({
+            hasBackdrop: true,
+            positionStrategy: this.overlay.position().global().right()
+        })
+        this.overlayRef.attach(new TemplatePortal(this.showNavSetting, this.viewContainerRef))
+        this.overlayRef.backdropClick().subscribe(() => {
+            this.overlayRef.detach();
+        })
+
     }
 
     closeDialog() {
-        this.dialogRef.close();
-
-
-        // this.configService.dowload(body, params).subscribe((res: any) => {
-        // const  blob = new Blob([res], {type: 'application/json'})
-        //     const dowload = window.URL.createObjectURL(res)
-        //     let link = document.createElement('a')
-        //     link.href = dowload
-        //     link.download = 'file_name.csv'
-        // })
+        this.overlayRef.detach();
     }
 }

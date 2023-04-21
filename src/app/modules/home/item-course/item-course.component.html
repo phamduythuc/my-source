@@ -1,13 +1,30 @@
-<ng-container *ngFor="let course of courses">
-
-  <div class="bg-white p-4 w-[320px] max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700 cursor-pointer" (click)="courseDetail(course)">
-    <div class="w-full h-[140px] bg-gray-200 mb-2">
-          <img class="w-full" [src]="course.image" alt="">
+<ng-container *ngFor="let course of courseData" class="shadow-custom">
+  <div (click)="getDetailCourse(course._id)" class="bg-white flex-1 p-3 w-full max-w-md rounded-xl overflow-hidden shadow-sm shadow-gray-700 item-ctm position: relative">
+    <div class="w-full h-[140px] mb-2" [style.background]='course.background' >
+<!--          <img class="w-full" [src]="course.image" alt="">-->
     </div>
-    <div class="flex flex-col">
-      <p class="text-2xl font-semibold">{{course.title}}</p>
-      <p>jonas</p>
+    <div class="flex flex-col detail-container">
+      <p class="text-2xl font-semibold title">{{course.title}}</p>
+      <p class="author">{{course.author}}</p>
+      <div class="mt-5">
+<!--       <div class="flex items-center">-->
+<!--&lt;!&ndash;         <p class="margin-b-0 text-[#B86A72] pointStar">{{course.pointEvaluation}}</p>&ndash;&gt;-->
+<!--         <mat-icon class="">star</mat-icon>-->
+<!--         <mat-icon class="">grade</mat-icon>-->
+<!--         <mat-icon class="">grade</mat-icon>-->
+<!--         <mat-icon class="">grade</mat-icon>-->
+<!--         <mat-icon class="">grade</mat-icon>-->
+<!--       </div>-->
 
+        <div class="flex items-center mb-4">
+          <mat-icon class="">groups</mat-icon>
+          <p class="view">{{course.view}}</p>
+        </div>
+        <div class="flex justify-center">
+          <div class="pr-2 text-[24px] text-[#F05123]">{{course.priceDiscount}}</div>
+          <div class="pr-2 text-[12px] text-decoration-line: line-through">{{course.price}}</div>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>

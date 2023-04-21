@@ -5,6 +5,7 @@ import {AuthService} from 'src/app/core/auth/auth.service';
 import * as bcrypt from 'bcryptjs';
 import {Router} from "@angular/router";
 import {TranslocoService} from "@ngneat/transloco";
+import { AccountService } from 'src/app/core/auth/account.service';
 
 @Component({
     selector: 'app-sign-in',
@@ -28,6 +29,7 @@ export class SignInComponent implements OnInit {
       private authService: AuthService,
       private router: Router,
       private  translocoService: TranslocoService,
+      private accountService: AccountService
     ) {
     }
 
@@ -53,7 +55,7 @@ export class SignInComponent implements OnInit {
         this.showAlert = false;
 
         this.authService.signin(this.signInForm.value).subscribe(res => {
-                // this.accessToken = res?.body?.token
+                this.accountService.getAccount()
                 console.log(this.authService.signedin$)
             this.router.navigateByUrl('/')
             },

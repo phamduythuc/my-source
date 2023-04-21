@@ -1,78 +1,76 @@
-<div class="w-full relative">
-  <div class="w-[60%] flex flex-col">
-    <div>
-
-      <h2>Nodejs Express Moongodb</h2>
-      <p>Description Master Node by building a real-world RESTful API and web app (with authentication, Node.js
-        security,
-        payments & more)</p>
-      <div class="flex space-x-5">
-        <span>17605 xếp hạng</span>
-        <span>390 người xem</span>
-      </div>
-      <p>Tác giả: jonas</p>
-      <div class="flex items-center space-x-2">
-        <mat-icon>language</mat-icon>
-        <span>Tiếng việt</span>
-      </div>
-    </div>
-    <div>
-      <h3>Những gì bạn sẽ nhận được</h3>
-      <div class="">
-        <ul>
-          <li>Master the entire modern back-end stack: Node, Express, MongoDB and Mongoose (MongoDB JS driver)</li>
-          <li>Build a fast, scalable, feature-rich RESTful API (includes filters, sorts, pagination, and much more)</li>
-          <li>CRUD operations with MongoDB and Mongoose</li>
-          <li>How to work with data in NoSQL databases (including geospatial data)</li>
-          <li>Security: encryption, sanitization, rate limiting, etc.</li>
-        </ul>
-      </div>
-    </div>
-    <div>
-      <h3>Nội dung khoá học
-      </h3>
+<div class="w-full flex justify-between gap-4">
+    <div class="w-[70%] flex flex-col">
         <div>
-          <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  1. Bắt đầu
-                </mat-panel-title>
-<!--                <mat-panel-description>-->
-<!--                  This is a summary of the content-->
-<!--                </mat-panel-description>-->
-              </mat-expansion-panel-header>
-              <p>This is the primary content of the panel.</p>
-            </mat-expansion-panel>
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                 2. Set up môi trường
-                </mat-panel-title>
-                <mat-panel-description>
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
+
+            <h2>{{course?.title}}</h2>
+            <p>Description Master Node by building a real-world RESTful API and web app (with authentication, Node.js
+                security,
+                payments & more)</p>
+            <div class="flex space-x-5">
+                <span>17605 xếp hạng</span>
+                <span>390 người xem</span>
+            </div>
+            <p>Tác giả: {{course?.author}}</p>
+            <div class="flex items-center space-x-2">
+                <mat-icon>language</mat-icon>
+                <span>Tiếng việt</span>
+            </div>
+        </div>
+        <div>
+            <h3>Những gì bạn sẽ nhận được</h3>
+            <div class="">
+                <ul *ngFor="let learn of detailCourse?.will_learn">
+                    <li>{{learn.content}}</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h3>Nội dung khoá học
+            </h3>
+            <div>
+                <mat-accordion *ngFor="let track of detailCourse?.track">
+                    <mat-expansion-panel class="mb-3" (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{track.title}}
+                            </mat-panel-title>
+                            <!--                <mat-panel-description>-->
+                            <!--                  This is a summary of the content-->
+                            <!--                </mat-panel-description>-->
+                        </mat-expansion-panel-header>
+                        <div class="py-2 border-b-2" *ngFor="let track_step of track.track_steps">
+                            <span>{{track_step.title}}</span>
+                        </div>
+                    </mat-expansion-panel>
+                    <!--            <mat-expansion-panel (opened)="panelOpenState = true"-->
+                    <!--                                 (closed)="panelOpenState = false">-->
+                    <!--              <mat-expansion-panel-header>-->
+                    <!--                <mat-panel-title>-->
+                    <!--                 2. Set up môi trường-->
+                    <!--                </mat-panel-title>-->
+                    <!--                <mat-panel-description>-->
+                    <!--                </mat-panel-description>-->
+                    <!--              </mat-expansion-panel-header>-->
+                    <!--              <p>I'm visible because I am open</p>-->
+                    <!--            </mat-expansion-panel>-->
+                </mat-accordion>
+            </div>
         </div>
     </div>
-  </div>
-  <div class="w-fit absolute top-10 right-20 flex flex-col p-5 shadow-md shadow-gray-600 rounded-xl">
-    <div class="w-[300px] h-140px">
-      <img class="w-full" src="https://blog.lisogorsky.ru/img/nodejs_img.jpg" alt="">
-    </div>
-    <div class="w-full mt-4">
-      <h4>Free</h4>
-      <button class="w-full" mat-raised-button color="primary">Học ngay</button>
-      <div class="flex flex-col my-4">
-        <p>160 bài học</p>
-        <p>35 hour video</p>
-        <p>Học mọi múc mọi nơi</p>
-      </div>
+    <div class="w-fit top-10 right-20 flex flex-col p-5 shadow-md shadow-gray-600 rounded-xl">
+        <div class="w-[300px] h-140px">
+            <img class="w-full" src="https://blog.lisogorsky.ru/img/nodejs_img.jpg" alt="">
+        </div>
+        <div class="w-full mt-4">
+            <h4>Free</h4>
+            <button class="w-full" mat-raised-button color="primary" (click)="registerCourse()">Học ngay</button>
+            <div class="flex flex-col my-4">
+                <p>160 bài học</p>
+                <p>35 hour video</p>
+                <p>Học mọi múc mọi nơi</p>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>

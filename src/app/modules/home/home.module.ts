@@ -8,7 +8,6 @@ import {SliderComponent} from "./slider/slider.component";
 import { ItemCourseComponent } from './item-course/item-course.component';
 import {MaterialModule} from "../../material/material.module";
 
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -17,7 +16,7 @@ import {MaterialModule} from "../../material/material.module";
   imports: [
     CommonModule,
     SliderModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class HomeModule { }
